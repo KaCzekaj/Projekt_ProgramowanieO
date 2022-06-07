@@ -58,6 +58,9 @@
     <Compile Include="MyDataWindow.xaml.cs">
       <DependentUpon>MyDataWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyReservationWindow.xaml.cs">
+      <DependentUpon>MyReservationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MyDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyReservationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
