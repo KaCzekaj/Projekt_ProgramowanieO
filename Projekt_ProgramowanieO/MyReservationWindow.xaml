@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MyReservationWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="c huj" HorizontalAlignment="Left" Margin="262,200,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
