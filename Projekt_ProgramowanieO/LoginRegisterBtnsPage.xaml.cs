@@ -24,7 +24,21 @@ namespace Projekt_ProgramowanieO
         public LoginRegisterBtnsPage()
         {
             InitializeComponent();
-        }               
+            
+
+        }
+
+        private void LoginBtn_1(object sender, RoutedEventArgs e)
+        {          
+            MainFrame.Content = new LoginPage();
+            
+        }
+        private void RegisterBtn_1(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new RegisterPage();
+            
+            
+        }
     }
 
 }
