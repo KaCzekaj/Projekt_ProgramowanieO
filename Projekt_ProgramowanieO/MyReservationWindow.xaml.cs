@@ -23,5 +23,7 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+
+        
     }
 }

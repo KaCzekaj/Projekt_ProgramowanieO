@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" >
-            <Button x:Name="LoginBtn" Content="Login" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="45" Width="86" Margin="0 0 120 0"/>
+            <Button x:Name="LoginBtn" Content="Login" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="45" Width="86" Margin="0 0 120 0" Click="LoginBtn_1"/>
             <Button x:Name="RegisterBtn" Content="Register" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="45" Width="86"/>
         </StackPanel>
         

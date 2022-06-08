@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="MyReservationWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Próba4" HorizontalAlignment="Left" Margin="356,217,0,0" VerticalAlignment="Top" Height="127" Width="215"/>
+        <StackPanel>
+            
+
+            <DataGrid Height="100" d:ItemsSource="{d:SampleData ItemCount=3}"
+                      VerticalAlignment="Center" HorizontalAlignment="Left" />
+            <Button Content="Button" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>

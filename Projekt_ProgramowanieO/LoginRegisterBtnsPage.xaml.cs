@@ -20,9 +20,11 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class LoginRegisterBtnsPage : Page
     {
+        
         public LoginRegisterBtnsPage()
         {
             InitializeComponent();
-        }
+        }               
     }
+
 }

@@ -24,5 +24,6 @@ namespace Projekt_ProgramowanieO
             InitializeComponent();
             MainFrame.Content = new LoginRegisterBtnsPage();
         }
+       
     }
 }
