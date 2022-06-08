@@ -22,7 +22,7 @@ namespace Projekt_ProgramowanieO
         public LoginWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new LoginRegisterBtnsPage();
+            MainFrame.Content = new LoginRegisterBtnsPage(MainFrame);
         }
        
     }

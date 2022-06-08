@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel>
-            <TextBox x:Name="NameTxt" Margin="0,60,0,0" TextWrapping="Wrap" Text="Imie" Width="160" Height="35" FontSize="15"/>
+            <TextBox x:Name="NameTxt" Margin="0,10,0,0" TextWrapping="Wrap" Text="Imie" Width="160" Height="35" FontSize="15"/>
             <TextBox x:Name="SurnameTxt" Margin="0,15,0,0" TextWrapping="Wrap" Text="Nazwisko" Width="160" Height="35" FontSize="15"/>
             <TextBox x:Name="PeselTxt" Margin="0,15,0,0" TextWrapping="Wrap" Text="Pesel" Width="160" Height="35" FontSize="15"/>
             <TextBox x:Name="LoginTxt" Margin="0,15,0,0" TextWrapping="Wrap" Text="Login" Width="160" Height="35" FontSize="15"/>

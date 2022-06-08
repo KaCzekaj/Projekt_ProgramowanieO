@@ -20,22 +20,25 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class LoginRegisterBtnsPage : Page
     {
-        
-        public LoginRegisterBtnsPage()
+        private readonly Frame frame;
+        public LoginRegisterBtnsPage(Frame frame)
         {
-            InitializeComponent();
-            
+            InitializeComponent();           
+            this.frame = frame;    
 
         }
 
         private void LoginBtn_1(object sender, RoutedEventArgs e)
-        {          
-            MainFrame.Content = new LoginPage();
+        {               
+            frame.Content = new LoginPage();
+            
             
         }
         private void RegisterBtn_1(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new RegisterPage();
+        {   
+
+            frame.Content = new RegisterPage();
+            
             
             
         }

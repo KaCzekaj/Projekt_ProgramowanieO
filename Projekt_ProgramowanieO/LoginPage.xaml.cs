@@ -24,5 +24,11 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+        private void LoginBtn_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();      
+            mainWindow.Show();
+            
+        }
     }
 }

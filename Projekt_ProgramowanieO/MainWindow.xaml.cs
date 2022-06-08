@@ -24,5 +24,19 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+        private void MyReservationsBtn_1(object sender, RoutedEventArgs e)
+        {
+            MyReservationWindow reservationWindow = new MyReservationWindow();
+            reservationWindow.Show();
+        }
+        private void MyDataBtn_1(object sender, RoutedEventArgs e)
+        {
+            MyDataWindow dataWindow = new MyDataWindow();
+            dataWindow.Show();
+        }
+        private void LogOutBtn_1(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new LoginPage();
+        }
     }
 }
