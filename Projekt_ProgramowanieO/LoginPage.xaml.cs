@@ -26,7 +26,7 @@ namespace Projekt_ProgramowanieO
         }
         private void LoginBtn_2(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();      
+            MainWindow mainWindow = new MainWindow();           
             mainWindow.Show();
             
         }

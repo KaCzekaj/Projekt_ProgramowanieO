@@ -24,5 +24,12 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+        private void RegisterBtn_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            mainWindow.Show();
+
+        }
     }
 }
