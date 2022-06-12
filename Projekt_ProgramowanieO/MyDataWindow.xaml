@@ -8,7 +8,10 @@
         Title="MyData" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal"/>
+            <StackPanel 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                Orientation="Horizontal"/>
             <DataGrid Height="100"/>
 
         </StackPanel>
