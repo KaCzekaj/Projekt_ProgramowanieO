@@ -7,14 +7,10 @@
         mc:Ignorable="d"
         Title="MyReservationWindow" Height="450" Width="800">
     <Grid>
-        
-            
+        <Button Content="Button" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
+        <DataGrid />
 
-            <DataGrid Height="100" d:ItemsSource="{d:SampleData ItemCount=3}"
-                      VerticalAlignment="Center" HorizontalAlignment="Left" />
-            <Button Content="Button" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
 
-        
 
     </Grid>
 </Window>
