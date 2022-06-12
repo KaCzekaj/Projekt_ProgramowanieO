@@ -19,13 +19,17 @@ namespace Projekt_ProgramowanieO
     /// Logika interakcji dla klasy LoginRegisterBtnsPage.xaml
     /// </summary>
     public partial class LoginRegisterBtnsPage : Page
+
     {
         private readonly Frame frame;
+
+
+
         public LoginRegisterBtnsPage(Frame frame)
         {
             InitializeComponent();           
             this.frame = frame;    
-
+            
         }
 
         private void LoginBtn_1(object sender, RoutedEventArgs e)
@@ -42,6 +46,17 @@ namespace Projekt_ProgramowanieO
             
             
         }
-    }
 
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            
+
+        }
+
+        private void MainFrame_Navigated_1(object sender, NavigationEventArgs e)
+        {
+
+        }
+    }
+    
 }
