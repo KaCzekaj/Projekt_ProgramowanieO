@@ -18,7 +18,7 @@
             <TextBox x:Name="PasswordTxt" Margin="0,15,0,0" TextWrapping="Wrap" Text="Password" Width="160" Height="35" FontSize="20"/>
             <TextBox x:Name="EmailTxt" Margin="0,15,0,0" TextWrapping="Wrap" Text="Email" Width="160" Height="35" FontSize="20"/>
 
-            <Button 
+            <Button
                 x:Name="RegisterBtn" 
                 Content="Register" 
                 Margin="0 20 0 0"
@@ -29,10 +29,16 @@
                 FontWeight="Bold"
                 Foreground="#585959"
                 Background="AliceBlue"
-                BorderThickness="5,5,5,5"
-                
-                Click="RegisterBtn_2" />
+                BorderThickness="5,5,5,5"               
+                Click="RegisterBtn_2" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
+            
         
         
     </Grid>
