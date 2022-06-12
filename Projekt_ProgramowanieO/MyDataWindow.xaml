@@ -8,14 +8,10 @@
         Title="MyData" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                <TextBlock x:Name="NameTxt" TextAlignment="Center"  HorizontalAlignment="Center" Width="200" Height="37" FontSize="30" Margin="0 150 0 0"  Foreground="#3C4AE6">Imie</TextBlock>
-                <TextBlock x:Name="SurnameTxt" TextAlignment="Center"  HorizontalAlignment="Center" Width="200" Height="37" FontSize="30" Margin="0 150 0 0"  Foreground="#3C4AE6">Nazwisko</TextBlock>
-                <TextBlock x:Name="PeselTxt" TextAlignment="Center"  HorizontalAlignment="Center" Width="200" Height="37" FontSize="30" Margin="0 150 0 0"  Foreground="#3C4AE6">Pesel</TextBlock>
-                <TextBlock x:Name="MyLoginTxt" TextAlignment="Center"  HorizontalAlignment="Center" Width="200" Height="37" FontSize="30" Margin="0 150 0 0"  Foreground="#3C4AE6">Mój Login</TextBlock>
-            </StackPanel>
-            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal"/>
+            <DataGrid Height="100"/>
+
         </StackPanel>
-        
+
     </Grid>
 </Window>
