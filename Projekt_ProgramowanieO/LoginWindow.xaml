@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
         Background="#A6D5DE"
-        Title="LoginWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="LoginWindow" Height="450" Width="800"  ResizeMode="NoResize">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\bucio\Desktop\watermark3.jpg"/>
-        </Grid.Background>
+       
         <Frame x:Name="MainFrame"/>
-        <StackPanel VerticalAlignment="Top" Margin="0,160,0,0">
+        <StackPanel VerticalAlignment="Top" Margin="0,160,0,0" >
 
 
             <StackPanel>
@@ -31,7 +29,11 @@
                     x:Name="LoginTxt" 
                     TextWrapping="Wrap" 
                     Width="200" Height="50"
-                    FontSize="20"/>
+                    FontSize="20">
+                    <TextBox.Effect>
+                        <DropShadowEffect/>
+                    </TextBox.Effect>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Margin="0 10 0 0">
@@ -48,7 +50,11 @@
                 <PasswordBox 
                     x:Name="PasswordTxt" 
                     Width="200" Height="50" 
-                    FontSize="20"/>
+                    FontSize="20">
+                    <PasswordBox.Effect>
+                        <DropShadowEffect/>
+                    </PasswordBox.Effect>
+                </PasswordBox>
             </StackPanel>
 
             <Button               
