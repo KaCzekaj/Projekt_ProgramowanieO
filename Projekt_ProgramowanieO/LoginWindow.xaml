@@ -27,7 +27,6 @@
                 <TextBox
                     x:Name="LoginTxt" 
                     TextWrapping="Wrap" 
-                    Text="Type your username..." 
                     Width="200" Height="50"
                     FontSize="20"/>
             </StackPanel>

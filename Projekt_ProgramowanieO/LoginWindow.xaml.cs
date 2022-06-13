@@ -38,9 +38,37 @@ namespace Projekt_ProgramowanieO
                 {
                     connection.Open();
                 }
-                string loginQuery
-            }
+                string loginQuery = "Select (1) From LoginHaslo WHERE Login = @Login AND Haslo = @Haslo";
+                SqlCommand command = new SqlCommand(loginQuery, connection);
 
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@Login", LoginTxt.Text);
+                command.Parameters.AddWithValue("@Haslo",PasswordTxt.Password);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                if(count == 1)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("You've entered wrong login or password! Please check again if you write it correctly.");
+                }
+             
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
