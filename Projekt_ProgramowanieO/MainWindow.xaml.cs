@@ -27,11 +27,13 @@ namespace Projekt_ProgramowanieO
         private void MyReservationsBtn_1(object sender, RoutedEventArgs e)
         {
             MyReservationWindow reservationWindow = new MyReservationWindow();
+            Visibility = Visibility.Hidden;
             reservationWindow.Show();
         }
         private void MyDataBtn_1(object sender, RoutedEventArgs e)
         {
             MyDataWindow dataWindow = new MyDataWindow();
+            Visibility = Visibility.Hidden;
             dataWindow.Show();
         }
         private void LogOutBtn_1(object sender, RoutedEventArgs e)

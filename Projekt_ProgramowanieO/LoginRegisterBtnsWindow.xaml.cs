@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Projekt_ProgramowanieO
 {
     /// <summary>
-    /// Logika interakcji dla klasy RegisterPage.xaml
+    /// Logika interakcji dla klasy LoginRegisterBtnsWindow.xaml
     /// </summary>
-    public partial class RegisterPage : Page
+    public partial class LoginRegisterBtnsWindow : Window
     {
-        public RegisterPage()
+        public LoginRegisterBtnsWindow()
         {
             InitializeComponent();
-        }
-        private void RegisterBtn_2(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            this.Visibility = Visibility.Hidden;
-            mainWindow.Show();
-
         }
     }
 }
