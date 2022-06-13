@@ -5,36 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#A6D5DE">
+
     <Grid>
+
         <Frame x:Name="MainFrame"/>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 0 0">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 10 0">
 
 
             <Button 
-                Content="Moje rezerwacje" 
-                HorizontalAlignment="Left"
+                Content="Pracownicy"
+                
                 Margin="0 0 20 0"  
-                VerticalAlignment="Top" 
-                />
+                VerticalAlignment="Top" Height="40" Width="120" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
 
 
             <Button 
-                Content="Panel Admina" 
-                HorizontalAlignment="Left" 
+                Content="Zamów Samochód" 
                 Margin="0 0 20 0"  
-                VerticalAlignment="Top" 
-                />
+                VerticalAlignment="Top" Height="40" Width="120" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
             <Button 
                 Content="Wyloguj" 
-                HorizontalAlignment="Left" 
                 Margin="0 0 20 0" 
-                VerticalAlignment="Top" 
-                />
+                VerticalAlignment="Top" Height="40" Width="120" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
         </StackPanel>
         <DataGrid x:Name="dataGrid" 
+                  
                   HorizontalAlignment="Center"
-                  Height="260" Margin="0,174,0,0" 
+                  Background="#A6D5DE"
+                  Height="356" Margin="0,78,0,0" 
                   VerticalAlignment="Top" Width="800" 
                   d:ItemsSource="{d:SampleData ItemCount=5}" 
                   SelectionChanged="dataGrid_SelectionChanged"/>
@@ -45,6 +66,6 @@
                FontFamily="SWIsot3" 
                FontWeight="Bold" 
                FontStyle="Italic" 
-               Margin="100,10,0,0"/>
+               Margin="55,10,0,0"/>
     </Grid>
 </Window>
