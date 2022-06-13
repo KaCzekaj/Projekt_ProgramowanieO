@@ -15,6 +15,7 @@
                 Margin="0 0 20 0"  
                 VerticalAlignment="Top" 
                 Click="MyReservationsBtn_1"/>
+            
             <Button 
                 Content="Panel Admina" 
                 HorizontalAlignment="Left" 
