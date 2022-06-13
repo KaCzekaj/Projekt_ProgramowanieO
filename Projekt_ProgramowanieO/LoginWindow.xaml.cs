@@ -56,7 +56,7 @@ namespace Projekt_ProgramowanieO
                 }
                 else
                 {
-                    MessageBox.Show("You've entered wrong login or password! Please check again if you write it correctly.");
+                    MessageBox.Show("You've entered wrong login or password! Please check again if you wrote it correctly.");
                 }
              
             }
