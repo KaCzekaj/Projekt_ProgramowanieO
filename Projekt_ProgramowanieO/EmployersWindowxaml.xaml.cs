@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +25,34 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+
+        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+
         private void RefreshBtn_Click(object s , RoutedEventArgs e)
         {
+            try
+            {
+                connection.Open();
+                string query = " select ID, Imie, Nazwisko, Email, Telefon,StatusID From Pracownicy";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                DataTable listaPracowników = new DataTable("ListaSamochodów");
+                adapter.Fill(listaPracowników);
+
+                pracownicydataGrid.ItemsSource = listaPracowników.DefaultView;
+
+                adapter.Update(listaPracowników);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
         }
     }

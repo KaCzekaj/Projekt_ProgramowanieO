@@ -60,7 +60,7 @@ namespace Projekt_ProgramowanieO
                 DataTable listaSamochodow = new DataTable("ListaSamochodów"); 
                 adapter.Fill(listaSamochodow);
 
-                dataGrid.ItemsSource = listaSamochodow.DefaultView;
+                listaSamochodowdataGrid.ItemsSource = listaSamochodow.DefaultView;
 
                 adapter.Update(listaSamochodow);
             }
