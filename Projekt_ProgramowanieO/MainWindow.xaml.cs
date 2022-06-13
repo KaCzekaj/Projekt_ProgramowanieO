@@ -52,10 +52,10 @@ namespace Projekt_ProgramowanieO
             try
             {
                 connection.Open();
-                string query = "SELECT ID,Marka,Model,Nadwozie,MocSilnika,Ilosc,StatusID";
+                string query = " select ID, Marka, Model, Nadwozie, MocSilnika, Ilosc, StatusID From ListaSamochodow ";
                 SqlCommand command = new SqlCommand(query,connection);
                 command.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 DataTable listaSamochodow = new DataTable("ListaSamochodów"); 
                 adapter.Fill(listaSamochodow);

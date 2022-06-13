@@ -10,8 +10,42 @@
     <Grid>
 
         <Frame x:Name="MainFrame"/>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 10 0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DataGrid x:Name="dataGrid" 
+                      
+                  Background="#A6D5DE"                
+                  Margin="0,0,0,0" 
+                  Width="800" 
+                  d:ItemsSource="{d:SampleData ItemCount=7}"/>
 
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button 
+                x:Name="RefreshBtn"
+                Content="Odśwież" 
+                Margin="0 0 0 50"  
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Height="40" Width="120"
+                Click="RefreshButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="CarRent" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               FontSize="48" 
+               FontFamily="SWIsot3" 
+               FontWeight="Bold" 
+               FontStyle="Italic" 
+               Margin="55,10,0,0"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 10 0">
 
             <Button 
                 Content="Pracownicy"               
@@ -25,9 +59,6 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
-
-
 
             <Button 
                 Content="Zamów Samochód" 
@@ -53,37 +84,6 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
         </StackPanel>
-        <DataGrid x:Name="dataGrid" 
-                  
-                  HorizontalAlignment="Center"
-                  Background="#A6D5DE"
-                  Height="356" Margin="0,78,0,0" 
-                  VerticalAlignment="Top" Width="800" 
-                  d:ItemsSource="{d:SampleData ItemCount=5}"/>
-      
-        <Label Content="CarRent" 
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Top" 
-               FontSize="48" 
-               FontFamily="SWIsot3" 
-               FontWeight="Bold" 
-               FontStyle="Italic" 
-               Margin="55,10,0,0"/>
-            <Button 
-                x:Name="RefreshBtn"
-                Content="Odśwież" 
-                Margin="0 20 0 0"  
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Height="40" Width="120"
-                Click="RefreshButton_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
     </Grid>
 </Window>
