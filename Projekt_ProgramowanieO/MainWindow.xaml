@@ -61,8 +61,7 @@
                   Background="#A6D5DE"
                   Height="356" Margin="0,78,0,0" 
                   VerticalAlignment="Top" Width="800" 
-                  d:ItemsSource="{d:SampleData ItemCount=5}" 
-                  SelectionChanged="dataGrid_SelectionChanged"/>
+                  d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Label Content="CarRent" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Top" 

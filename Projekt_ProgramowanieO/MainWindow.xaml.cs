@@ -24,10 +24,23 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
-       
-        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void PracownicyButton_Click(object s, RoutedEventArgs e)
         {
-
+            EmployersWindowxaml employersWindow = new EmployersWindowxaml();
+            this.Visibility = Visibility.Hidden;
+            employersWindow.Show();
+        }
+        private void ZamowSamochodButton_Click(object s, RoutedEventArgs e)
+        {
+            CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
+            this.Visibility = Visibility.Hidden;
+            carOrdersWindow.Show();
+        }
+        private void WylogujButton_Click(object s, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow2 = new LoginWindow();
+            this.Visibility= Visibility.Hidden;
+            loginWindow2.Show();
         }
     }
 }
