@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +24,23 @@ namespace Projekt_ProgramowanieO
         public LoginWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new LoginRegisterBtnsPage(MainFrame);
+
+           
         }
-       
+
+        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+
+        private void LoginButton_Click(object s, RoutedEventArgs e)
+        {
+            try
+            {
+                if(connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+                string loginQuery
+            }
+
+        }
     }
 }

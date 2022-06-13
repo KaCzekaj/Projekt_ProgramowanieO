@@ -49,8 +49,7 @@
                     FontSize="20"/>
             </StackPanel>
 
-            <Button
-                x:Name="LoginBtn" 
+            <Button               
                 Content="Login" 
                 FontSize="20"
                 FontWeight="Bold"
@@ -61,7 +60,7 @@
                 Height="60" Width="200" 
                 Background="AliceBlue"
                 BorderThickness="5,5,5,5"
-                Click="LoginBtn_2">
+                Click="LoginButton_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
