@@ -8,6 +8,9 @@
         Background="#A6D5DE"
         Title="LoginWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\bucio\Desktop\watermark3.jpg"/>
+        </Grid.Background>
         <Frame x:Name="MainFrame"/>
         <StackPanel VerticalAlignment="Top" Margin="0,160,0,0">
 
@@ -21,7 +24,7 @@
                     FontSize="20"
                     Margin="0 0 0 0" 
                     FontWeight="Bold"
-                    Foreground="#585959">
+                    Foreground="White">
                     <Run Text="Username"/>
                 </TextBlock>
                 <TextBox
@@ -39,7 +42,7 @@
                     FontSize="20" 
                     Margin="0 0 0 0" 
                     FontWeight="Bold" 
-                    Foreground="#585959">
+                    Foreground="White">
                     <Run Text="Password"/>
                 </TextBlock>
                 <PasswordBox 
@@ -72,12 +75,14 @@
         <Label Content="Hello Admin User! To check Your comapny properties, type Your Login, &#xD;&#xA;Password and hit Username button! Have a great time with Your buisiness!" 
                HorizontalAlignment="Left" 
                Margin="70,90,0,0" 
+               Foreground="White"
                VerticalAlignment="Top" 
                Height="70" 
                Width="684" 
                FontSize="20"/>
         <Label Content="CarRent" 
                HorizontalAlignment="Center" 
+               Foreground="White"
                VerticalAlignment="Top" 
                FontSize="48" 
                FontFamily="SWIsot3" 
