@@ -28,5 +28,6 @@
                 VerticalAlignment="Top" 
                 Click="LogOutBtn_1"/>
         </StackPanel>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="260" Margin="48,109,0,0" VerticalAlignment="Top" Width="722" d:ItemsSource="{d:SampleData ItemCount=5}"/>
     </Grid>
 </Window>
