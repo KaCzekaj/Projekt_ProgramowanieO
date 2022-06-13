@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace Projekt_ProgramowanieO
 {
     /// <summary>
-    /// Logika interakcji dla klasy MyReservationWindow.xaml
+    /// Logika interakcji dla klasy CarOrdersWindow.xaml
     /// </summary>
-    public partial class MyReservationWindow : Window
+    public partial class CarOrdersWindow : Window
     {
-        public MyReservationWindow()
+        public CarOrdersWindow()
         {
             InitializeComponent();
         }
-
-        
     }
 }

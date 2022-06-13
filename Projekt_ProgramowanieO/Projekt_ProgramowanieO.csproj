@@ -56,19 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LoginRegisterBtnsWindow.xaml.cs">
-      <DependentUpon>LoginRegisterBtnsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyDataWindow.xaml.cs">
-      <DependentUpon>MyDataWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyReservationWindow.xaml.cs">
-      <DependentUpon>MyReservationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterWindow.xaml.cs">
-      <DependentUpon>RegisterWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="LoginRegisterBtnsWindow.xaml">
+    <Page Include="CarOrdersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployersWindowxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,6 +76,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CarOrdersWindow.xaml.cs">
+      <DependentUpon>CarOrdersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployersWindowxaml.xaml.cs">
+      <DependentUpon>EmployersWindowxaml.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -91,18 +89,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MyDataWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MyReservationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RegisterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

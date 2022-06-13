@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Projekt_ProgramowanieO
 {
     /// <summary>
-    /// Logika interakcji dla klasy LoginRegisterBtnsWindow.xaml
+    /// Logika interakcji dla klasy EmployersWindowxaml.xaml
     /// </summary>
-    public partial class LoginRegisterBtnsWindow : Window
+    public partial class EmployersWindowxaml : Window
     {
-        public LoginRegisterBtnsWindow()
+        public EmployersWindowxaml()
         {
             InitializeComponent();
         }

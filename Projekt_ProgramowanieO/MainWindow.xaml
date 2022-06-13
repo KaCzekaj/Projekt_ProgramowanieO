@@ -16,7 +16,7 @@
                 VerticalAlignment="Top" 
                 Click="MyReservationsBtn_1"/>
             <Button 
-                Content="Moje dane" 
+                Content="Panel Admina" 
                 HorizontalAlignment="Left" 
                 Margin="0 0 20 0"  
                 VerticalAlignment="Top" 

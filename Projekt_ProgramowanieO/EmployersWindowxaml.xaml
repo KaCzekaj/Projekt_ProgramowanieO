@@ -1,16 +1,12 @@
-﻿<Window x:Class="Projekt_ProgramowanieO.MyReservationWindow"
+﻿<Window x:Class="Projekt_ProgramowanieO.EmployersWindowxaml"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
-        Title="MyReservationWindow" Height="450" Width="800">
+        Title="EmployersWindowxaml" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
-        <DataGrid />
-
-
-
+        
     </Grid>
 </Window>
