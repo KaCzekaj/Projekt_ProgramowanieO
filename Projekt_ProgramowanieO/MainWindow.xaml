@@ -9,26 +9,42 @@
     <Grid>
         <Frame x:Name="MainFrame"/>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 0 0">
+
+
             <Button 
                 Content="Moje rezerwacje" 
                 HorizontalAlignment="Left"
                 Margin="0 0 20 0"  
                 VerticalAlignment="Top" 
-                Click="MyReservationsBtn_1"/>
-            
+                />
+
+
             <Button 
                 Content="Panel Admina" 
                 HorizontalAlignment="Left" 
                 Margin="0 0 20 0"  
                 VerticalAlignment="Top" 
-                Click="MyDataBtn_1"/>
+                />
             <Button 
                 Content="Wyloguj" 
                 HorizontalAlignment="Left" 
                 Margin="0 0 20 0" 
                 VerticalAlignment="Top" 
-                Click="LogOutBtn_1"/>
+                />
         </StackPanel>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="260" Margin="48,100,0,0" VerticalAlignment="Top" Width="722" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="dataGrid" 
+                  HorizontalAlignment="Center"
+                  Height="260" Margin="0,174,0,0" 
+                  VerticalAlignment="Top" Width="800" 
+                  d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  SelectionChanged="dataGrid_SelectionChanged"/>
+        <Label Content="CarRent" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               FontSize="48" 
+               FontFamily="SWIsot3" 
+               FontWeight="Bold" 
+               FontStyle="Italic" 
+               Margin="100,10,0,0"/>
     </Grid>
 </Window>

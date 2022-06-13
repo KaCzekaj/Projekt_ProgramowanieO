@@ -40,5 +40,10 @@ namespace Projekt_ProgramowanieO
         {
             MainFrame.Content = new LoginPage();
         }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
