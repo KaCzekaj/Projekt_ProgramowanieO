@@ -23,5 +23,9 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+        private void RefreshBtn_Click(object s , RoutedEventArgs e)
+        {
+
+        }
     }
 }

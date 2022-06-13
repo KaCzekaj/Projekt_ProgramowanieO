@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,9 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+
+        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+
         private void PracownicyButton_Click(object s, RoutedEventArgs e)
         {
             EmployersWindowxaml employersWindow = new EmployersWindowxaml();
@@ -41,6 +46,32 @@ namespace Projekt_ProgramowanieO
             LoginWindow loginWindow2 = new LoginWindow();
             this.Visibility= Visibility.Hidden;
             loginWindow2.Show();
+        }
+        private void RefreshButton_Click(object s, RoutedEventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT ID,Marka,Model,Nadwozie,MocSilnika,Ilosc,StatusID";
+                SqlCommand command = new SqlCommand(query,connection);
+                command.ExecuteNonQuery();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                DataTable listaSamochodow = new DataTable("ListaSamochodów"); 
+                adapter.Fill(listaSamochodow);
+
+                dataGrid.ItemsSource = listaSamochodow.DefaultView;
+
+                adapter.Update(listaSamochodow);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
