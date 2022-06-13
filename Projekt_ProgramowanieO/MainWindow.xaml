@@ -14,10 +14,11 @@
 
 
             <Button 
-                Content="Pracownicy"
-                
+                Content="Pracownicy"               
                 Margin="0 0 20 0"  
-                VerticalAlignment="Top" Height="40" Width="120" >
+                VerticalAlignment="Top" 
+                Height="40" Width="120" 
+                Click="PracownicyButton_Click ">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -31,7 +32,9 @@
             <Button 
                 Content="Zamów Samochód" 
                 Margin="0 0 20 0"  
-                VerticalAlignment="Top" Height="40" Width="120" >
+                VerticalAlignment="Top"
+                Height="40" Width="120"
+                Click="ZamowSamochodButton_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -42,7 +45,8 @@
             <Button 
                 Content="Wyloguj" 
                 Margin="0 0 20 0" 
-                VerticalAlignment="Top" Height="40" Width="120" >
+                VerticalAlignment="Top" Height="40" Width="120"
+                Click="WylogujButton_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
