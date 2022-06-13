@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
-        Title="EmployersWindowxaml" Height="450" Width="800">
+        Title="EmployersWindowxaml" Height="450" Width="800" Background="#A6D5DE">
     <Grid>
-        
+        <Label Content="CarRent" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               FontSize="48" 
+               FontFamily="SWIsot3" 
+               FontWeight="Bold" 
+               FontStyle="Italic" 
+               Margin="0,10,0,0"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,144,0,0"/>
+        <Label Content="Below You can see ststus of Your employess. &#xD;&#xA;They can be Avalible or not Avalible for Your orders!" HorizontalAlignment="Center" Margin="0,69,0,0" VerticalAlignment="Top" Height="61" Width="425" FontSize="18"/>
     </Grid>
 </Window>
