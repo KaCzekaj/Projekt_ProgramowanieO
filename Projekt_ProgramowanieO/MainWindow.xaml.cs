@@ -43,7 +43,7 @@ namespace Projekt_ProgramowanieO
         }
         private void WylogujButton_Click(object s, RoutedEventArgs e)
         {
-            LoginWindow loginWindow2 = new LoginWindow();
+            LoginWindowV2 loginWindow2 = new LoginWindowV2();
             this.Visibility= Visibility.Hidden;
             loginWindow2.Show();
         }
