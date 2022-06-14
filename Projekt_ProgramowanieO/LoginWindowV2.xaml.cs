@@ -21,7 +21,10 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class LoginWindowV2 : Window
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
+
+        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+
+        //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
         public LoginWindowV2()
         {
             InitializeComponent();
@@ -40,7 +43,7 @@ namespace Projekt_ProgramowanieO
 
                 command.CommandType = CommandType.Text;
                 command.Parameters.AddWithValue("@Login", LoginTxt.Text);
-                command.Parameters.AddWithValue("@Haslo", PasswordTxt.Text);
+                command.Parameters.AddWithValue("@Haslo", PasswordTxt.passbox.Password);
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
 
