@@ -60,11 +60,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\UserNameContolTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployersWindowxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="LoginWindowV2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,11 +83,15 @@
     <Compile Include="CarOrdersWindow.xaml.cs">
       <DependentUpon>CarOrdersWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\login.cs" />
+    <Compile Include="Controls\UserNameContolTextBox.xaml.cs">
+      <DependentUpon>UserNameContolTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployersWindowxaml.xaml.cs">
       <DependentUpon>EmployersWindowxaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    <Compile Include="LoginWindowV2.xaml.cs">
+      <DependentUpon>LoginWindowV2.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

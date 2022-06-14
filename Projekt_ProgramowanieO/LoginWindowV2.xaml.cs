@@ -17,24 +17,21 @@ using System.Windows.Shapes;
 namespace Projekt_ProgramowanieO
 {
     /// <summary>
-    /// Logika interakcji dla klasy LoginWindow.xaml
+    /// Interaction logic for LogiWinfowV2.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindowV2 : Window
     {
-        public LoginWindow()
+        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
+        public LoginWindowV2()
         {
             InitializeComponent();
-
-           
         }
 
-        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
-
-        private void LoginButton_Click(object s, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if(connection.State == ConnectionState.Closed)
+                if (connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
                 }
@@ -43,11 +40,11 @@ namespace Projekt_ProgramowanieO
 
                 command.CommandType = CommandType.Text;
                 command.Parameters.AddWithValue("@Login", LoginTxt.Text);
-                command.Parameters.AddWithValue("@Haslo",PasswordTxt.Password);
+                command.Parameters.AddWithValue("@Haslo", PasswordTxt.Text);
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
 
-                if(count == 1)
+                if (count == 1)
                 {
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
@@ -58,9 +55,9 @@ namespace Projekt_ProgramowanieO
                 {
                     MessageBox.Show("You've entered wrong login or password! Please check again if you write it correctly.");
                 }
-             
+
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
 
@@ -71,4 +68,6 @@ namespace Projekt_ProgramowanieO
             }
         }
     }
-}
+
+ }
+
