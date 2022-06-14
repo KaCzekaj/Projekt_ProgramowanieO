@@ -23,5 +23,17 @@
                Margin="0,69,0,0" 
                VerticalAlignment="Top" FontSize="22"/>
 
+        <Button                 
+                x:Name="previousWindowButton"               
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="0 50 0 0" 
+                Height="40" Width="50"
+                Click="previousWindowBtn_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\previousWindowBtn.jpg"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>

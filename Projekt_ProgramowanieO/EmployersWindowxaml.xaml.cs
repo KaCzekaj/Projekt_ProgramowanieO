@@ -55,5 +55,12 @@ namespace Projekt_ProgramowanieO
             }
 
         }
+
+        private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            main.Show();
+        }
     }
 }

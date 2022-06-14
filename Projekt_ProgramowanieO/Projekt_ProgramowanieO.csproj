@@ -125,13 +125,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Login_Register img.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\watermark.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\previousWindowBtn.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

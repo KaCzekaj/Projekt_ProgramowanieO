@@ -23,5 +23,11 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+        private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            main.Show();
+        }
     }
 }
