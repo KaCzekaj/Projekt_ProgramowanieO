@@ -17,7 +17,7 @@
 
         <Frame x:Name="MainFrame"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <DataGrid x:Name="listaSamochodowdataGrid" 
+            <DataGrid x:Name="CarListdataGrid" 
                       
                   Background="#A6D5DE"                
                   Margin="0,0,0,0" 
@@ -49,8 +49,10 @@
                 BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
+                Foreground="White"
                 VerticalAlignment="Top" 
                 Height="40" Width="120" 
+                FontWeight="Bold"
                 Click="PracownicyButton_Click ">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -64,6 +66,8 @@
                 BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
+                Foreground="White"
+                FontWeight="Bold"
                 VerticalAlignment="Top"
                 Height="40" Width="120"
                 Click="ZamowSamochodButton_Click">
@@ -78,6 +82,8 @@
                 Content="Log Out" 
                 BorderThickness="3,3,3,3"
                 Background="DarkGoldenrod"
+                Foreground="White"
+                FontWeight="Bold"
                 Margin="0 0 20 0" 
                 VerticalAlignment="Top" Height="40" Width="120"
                 Click="WylogujButton_Click">

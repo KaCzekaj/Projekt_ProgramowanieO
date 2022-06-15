@@ -41,7 +41,7 @@ namespace Projekt_ProgramowanieO
             }
             else
             {
-                MessageBox.Show("paosdkoaskdo");
+                MessageBox.Show("Make sure if you've entered a correct username or password.");
             }
         }
     }

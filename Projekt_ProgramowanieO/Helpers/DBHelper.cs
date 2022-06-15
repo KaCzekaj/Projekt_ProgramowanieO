@@ -12,11 +12,11 @@ namespace Projekt_ProgramowanieO.Helpers
 {
     public static class DBHelper
     {
-        //public static SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
-        public static SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
+        public static SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        //public static SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
 
         /// <summary>
-        /// Method to LoginWindow.xaml.cs -- Logic to Login.
+        /// Logic to LoginWindow.xaml.cs
         /// </summary>
         /// <param name="login"></param>
         /// <param name="password"></param>
@@ -43,13 +43,11 @@ namespace Projekt_ProgramowanieO.Helpers
                 if (count == 1)
                 {
                     return true;
-
                 }
                 else
                 {
                     return false;
                 }
-
             }
             catch (Exception exception)
             {
@@ -63,7 +61,7 @@ namespace Projekt_ProgramowanieO.Helpers
         }
 
         /// <summary>
-        /// Method that shows table from ListaSamochodow
+        /// Returns Data from Car list Table.
         /// </summary>
         /// <returns></returns>
         public static DataTable GetCars()
@@ -71,7 +69,7 @@ namespace Projekt_ProgramowanieO.Helpers
             try
             {
                 connection.Open();
-                string query = " select ID, Marka, Model, Nadwozie, MocSilnika, Ilosc, StatusID From ListaSamochodow ";
+                string query = " select ID, Marka, Model, Nadwozie, MocSilnika,StatusID From ListaSamochodow ";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -95,7 +93,7 @@ namespace Projekt_ProgramowanieO.Helpers
         }
 
         /// <summary>
-        /// Method that shows DataGrid table from Pracownicy
+        /// Returns Data from Employees Table.
         /// </summary>
         /// <returns></returns>
         public static DataTable GetEmployees()
@@ -125,7 +123,7 @@ namespace Projekt_ProgramowanieO.Helpers
         }
 
         /// <summary>
-        /// Method that shows DataGrid from Table ZamowieniaSamochodu
+        /// Returns Data from CarOrders Table.
         /// </summary>
         /// <returns></returns>
         public static DataTable GetCarOrders()
@@ -133,7 +131,7 @@ namespace Projekt_ProgramowanieO.Helpers
             try
             {
                 connection.Open();
-                string query = " select ID,SamochodID, DataZamowienia, Ilosc, StatusID From ZamowieniaSamochodow ";
+                string query = " select ID,SamochodID, DataZamowienia, StatusID From ZamowieniaSamochodow ";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -154,7 +152,7 @@ namespace Projekt_ProgramowanieO.Helpers
             }
         }
         /// <summary>
-        /// Method that refreshes DataGrid in CarOrdersWindow
+        /// Refreshes Data from CarOrders Table.
         /// </summary>
         /// <returns></returns>
         public static DataTable RefreshCarOrders()
@@ -184,14 +182,16 @@ namespace Projekt_ProgramowanieO.Helpers
             }
         }
         /// <summary>
-        /// Method that Remove order from DataGrid table ZamowieniaSamochodow
+        /// Removes record from CarOrders Table
         /// </summary>
-        public static void RemoveOrder()
+        /// <param name="selectedOrder"></param>
+        /// <param name="ID"></param>
+        public static void RemoveOrder(int ID)
         {
-            int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
-            if (selectedOrder != -1)
-            {
-                TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+            //int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
+            //if (selectedOrder != -1)
+            //{
+                //TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
                 try
                 {
@@ -200,7 +200,7 @@ namespace Projekt_ProgramowanieO.Helpers
 
                     SqlCommand sqlCommand = new SqlCommand(query, connection);
 
-                    sqlCommand.Parameters.AddWithValue("@ID", ID.Text);
+                    sqlCommand.Parameters.AddWithValue("@ID", ID);
 
                     sqlCommand.ExecuteNonQuery();
 
@@ -227,36 +227,40 @@ namespace Projekt_ProgramowanieO.Helpers
                     connection.Close();
                 }
 
-            }
+            //}
         }
 
-        //public static void AddCarOrder()
-        //{
-        //    try
-        //    {
-        //        connection.Open();
-        //        string query = "Insert Into ZamowieniaSamochodow(SamochodID,DataZamowienia,Ilosc,StatusID) VALUES(@SamochodID,@DataZamowienia,@Ilosc,@StatusID)";
 
-        //        SqlCommand sqlCommand = new SqlCommand(query, connection);
+        /// <summary>
+        /// Adds record to CarsOrder Table
+        /// </summary>
+        /// <param name="SamochodId"></param>
+        /// <param name="Ilosc"></param>
+        /// <param name="StatusId"></param>
+        /// <param name="DataZamowienia"></param>
+        public static void AddCarOrder(string SamochodId,string StatusId, DateTime DataZamowienia)
+        {
+            try
+            {
+                connection.Open();
+                string query = "Insert Into ZamowieniaSamochodow(SamochodID,DataZamowienia,StatusID) VALUES(@SamochodID,@DataZamowienia,@StatusID)";
 
-        //        sqlCommand.Parameters.AddWithValue("@SamochodID", SamochodIdTxt.Text);
-        //        sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowieniaCalendar.SelectedDate);
-        //        sqlCommand.Parameters.AddWithValue("@Ilosc", IloscTxt.Text);
-        //        sqlCommand.Parameters.AddWithValue("@StatusID", StatusIdTxt.Text);
+                SqlCommand sqlCommand = new SqlCommand(query, connection);
 
-        //        sqlCommand.ExecuteNonQuery();
-        //        Close();
-        //        CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
+                sqlCommand.Parameters.AddWithValue("@SamochodID", SamochodId);               
+                sqlCommand.Parameters.AddWithValue("@StatusID", StatusId);
+                sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowienia);
 
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //}
+                sqlCommand.ExecuteNonQuery();                                            
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

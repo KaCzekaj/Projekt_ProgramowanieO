@@ -25,14 +25,11 @@ namespace Projekt_ProgramowanieO
         public EmployersWindowxaml()
         {
             InitializeComponent();
-        }
-
-        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
-      
+        }           
         private void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable EmployeesList = DBHelper.GetEmployees();
-            listapracownicydataGrid.ItemsSource = EmployeesList.DefaultView;
+            EmployeesListdataGrid.ItemsSource = EmployeesList.DefaultView;
         }
 
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)

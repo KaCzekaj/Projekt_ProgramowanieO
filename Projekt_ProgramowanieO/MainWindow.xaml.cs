@@ -27,11 +27,7 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
-
-        //SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
-
-
+       
         private void PracownicyButton_Click(object s, RoutedEventArgs e)
         {
             EmployersWindowxaml employersWindow = new EmployersWindowxaml();
@@ -54,7 +50,7 @@ namespace Projekt_ProgramowanieO
         private void CarListWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable Carslist = DBHelper.GetCars();
-            listaSamochodowdataGrid.ItemsSource = Carslist.DefaultView;
+            CarListdataGrid.ItemsSource = Carslist.DefaultView;
         }
     }
 }

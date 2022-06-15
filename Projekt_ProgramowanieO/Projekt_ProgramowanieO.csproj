@@ -124,7 +124,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Images\tlo1.webp" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -134,10 +133,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\previousWindowBtn.png" />
+    <Resource Include="Images\tlo2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\tlo2.png" />
+    <Resource Include="Images\previousWindowBtn3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

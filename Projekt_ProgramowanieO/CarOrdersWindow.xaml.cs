@@ -23,7 +23,7 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class CarOrdersWindow : Window
     {
-        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        
         public CarOrdersWindow()
         {
             InitializeComponent();
@@ -56,52 +56,21 @@ namespace Projekt_ProgramowanieO
         private void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable getCarOrders = DBHelper.GetCarOrders();
-            dodajSamochodDataGrid.ItemsSource = getCarOrders.DefaultView;
+           AddCarDataGrid.ItemsSource = getCarOrders.DefaultView;
         }
 
         private void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
         {
-            int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
+            
+            int? selectedOrder = AddCarDataGrid.SelectedIndex;
             if (selectedOrder != -1)
             {
-                TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+                TextBlock ID = AddCarDataGrid.Columns[0].GetCellContent(AddCarDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
-                try
-                {
-                    connection.Open();
-                    string query = "Delete From ZamowieniaSamochodow Where ID = @ID";
-
-                    SqlCommand sqlCommand = new SqlCommand(query, connection);
-
-                    sqlCommand.Parameters.AddWithValue("@ID", ID.Text);
-
-                    sqlCommand.ExecuteNonQuery();
-
-                    query = "Select * From ZamowieniaSamochodow";
-                    sqlCommand = new SqlCommand(query, connection);
-                    sqlCommand.ExecuteNonQuery();
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
-
-                    DataTable zamowieniaSamochodow = new DataTable("ZamowieniaSamochodow");
-                    adapter.Fill(zamowieniaSamochodow);
-
-                    dodajSamochodDataGrid.ItemsSource = zamowieniaSamochodow.DefaultView;
-
-                    adapter.Update(zamowieniaSamochodow);
-
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                DBHelper.RemoveOrder(int.Parse(ID.Text));
+                DataTable refreshCarOrders = DBHelper.GetCarOrders();
+                AddCarDataGrid.ItemsSource = refreshCarOrders.DefaultView;
             }
-
-
         }
 
 
@@ -109,7 +78,7 @@ namespace Projekt_ProgramowanieO
         private void RefreshData_Click(object sender, RoutedEventArgs e)
         {
             DataTable refreshCarOrders = DBHelper.RefreshCarOrders();
-            dodajSamochodDataGrid.ItemsSource = refreshCarOrders.DefaultView;
+            AddCarDataGrid.ItemsSource = refreshCarOrders.DefaultView;
 
 
         }

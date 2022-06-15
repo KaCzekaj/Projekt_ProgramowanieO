@@ -5,6 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_ProgramowanieO", "Projekt_ProgramowanieO\Projekt_ProgramowanieO.csproj", "{467D33B5-1AE6-4D78-A1EE-775D3D51BA3F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{439B4DFF-2482-4490-97B5-006A64940538}"
+	ProjectSection(SolutionItems) = preProject
+		CarRentDatabase.sql = CarRentDatabase.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

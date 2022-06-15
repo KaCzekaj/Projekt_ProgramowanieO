@@ -22,25 +22,17 @@
                 TextWrapping="Wrap" 
                 Text="SamochodID" 
                 VerticalAlignment="Top" 
+                BorderThickness="3 3 3 3"
                 GotFocus="SamochodIdTxt_GotFocus"
                 Width="100"  Height="35"/>
-            <TextBox 
-                x:Name ="IloscTxt" 
-                HorizontalAlignment="Left" 
-                BorderThickness="3 3 3 3"
-                Margin="0,0,20,0" 
-                TextWrapping="Wrap" 
-                Text="Ilosc" 
-                GotFocus="IloscTxt_GotFocus"
-                VerticalAlignment="Top" 
-                Width="100" Height="35"/>
+            
             <TextBox 
                 x:Name ="StatusIdTxt"     
                 BorderThickness="3 3 3 3"
                 HorizontalAlignment="Left" 
                 Margin="0,0,20,0"
                 TextWrapping="Wrap" 
-                Text="StatusID" 
+                Text="StatusID"                
                 VerticalAlignment="Top"
                 GotFocus="StatusIdTxt_GotFocus"
                 Width="100" Height="35"/>
@@ -48,17 +40,22 @@
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
             <Calendar
                 x:Name ="DataZamowieniaCalendar"                
-                Margin="0,0,90,0"                
-                Width="200" Height="135"/>
+                Margin="0,0,90,0"              
+                BorderThickness="3 3 3 3"
+                Width="200" Height="138"/>
         </StackPanel>
-        <StackPanel>
-            <Button
+        <Button
               x:Name="AddBtn"
-                
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 100 "
                 Content="AddCar"
+            Width="100" Height="40"
+            BorderThickness="3,3,3,3"
+            Background="DarkGoldenrod"
+            Foreground="White"
+            FontWeight="Bold"
                 Click="AddBtn_Click">
-            </Button>
-            
-        </StackPanel>
+        </Button>
     </Grid>
 </Window>

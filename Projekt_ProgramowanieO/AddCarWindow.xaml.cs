@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_ProgramowanieO.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class AddCarWindow : Window
     {
-        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        
         public AddCarWindow()
         {
             InitializeComponent();
@@ -29,43 +30,15 @@ namespace Projekt_ProgramowanieO
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                connection.Open();
-                string query = "Insert Into ZamowieniaSamochodow(SamochodID,DataZamowienia,Ilosc,StatusID) VALUES(@SamochodID,@DataZamowienia,@Ilosc,@StatusID)";
-
-                SqlCommand sqlCommand = new SqlCommand(query, connection);
-
-                sqlCommand.Parameters.AddWithValue("@SamochodID", SamochodIdTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@Ilosc", IloscTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@StatusID", StatusIdTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowieniaCalendar.SelectedDate);
-
-                sqlCommand.ExecuteNonQuery();
-                Close();
-                CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
+            DBHelper.AddCarOrder(SamochodIdTxt.Text,  StatusIdTxt.Text, (DateTime)DataZamowieniaCalendar.SelectedDate);
+            Close();        
         }
 
         private void SamochodIdTxt_GotFocus(object sender, RoutedEventArgs e)
         {
             SamochodIdTxt.Clear();
         }
-
-        private void IloscTxt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            IloscTxt.Clear();
-        }
-
+     
         private void StatusIdTxt_GotFocus(object sender, RoutedEventArgs e)
         {
             StatusIdTxt.Clear();
