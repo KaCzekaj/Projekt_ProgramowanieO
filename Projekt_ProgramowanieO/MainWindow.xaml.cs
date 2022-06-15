@@ -49,7 +49,7 @@ namespace Projekt_ProgramowanieO
             loginWindow2.Show();
         }
         
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void CarListWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable Carslist = DBHelper.GetCars();
             listaSamochodowdataGrid.ItemsSource = Carslist.DefaultView;

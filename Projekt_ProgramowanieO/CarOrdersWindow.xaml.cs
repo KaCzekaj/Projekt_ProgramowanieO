@@ -28,6 +28,12 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// This button moves to previous Window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
@@ -35,13 +41,19 @@ namespace Projekt_ProgramowanieO
             main.Show();
         }
 
+        /// <summary>
+        /// This button moves to AddCarWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddCarBtn_Click(object sender, RoutedEventArgs e)
         {
             AddCarWindow addCarWindow = new AddCarWindow();            
             addCarWindow.Show();
 
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+
+        private void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable getCarOrders = DBHelper.GetCarOrders();
             dodajSamochodDataGrid.ItemsSource = getCarOrders.DefaultView;
@@ -91,6 +103,8 @@ namespace Projekt_ProgramowanieO
 
 
         }
+
+
 
         private void RefreshData_Click(object sender, RoutedEventArgs e)
         {
