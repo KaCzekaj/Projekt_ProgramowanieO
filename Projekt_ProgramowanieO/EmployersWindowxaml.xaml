@@ -8,9 +8,9 @@
         Title="EmployersWindowxaml" Height="450" Width="800" Background="#A6D5DE" Loaded="Window_Loaded">
     <Grid>
 
-        <!--<Grid.Background>
-            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
-        </Grid.Background>-->
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo2.png"/>
+        </Grid.Background>
 
 
         <StackPanel>
