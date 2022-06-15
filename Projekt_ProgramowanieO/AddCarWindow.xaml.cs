@@ -33,19 +33,20 @@ namespace Projekt_ProgramowanieO
             {
                 connection.Open();
                 string query = "Insert Into ZamowieniaSamochodow(SamochodID,DataZamowienia,Ilosc,StatusID) VALUES(@SamochodID,@DataZamowienia,@Ilosc,@StatusID)";
-                
-                SqlCommand sqlCommand = new SqlCommand(query,connection);
+
+                SqlCommand sqlCommand = new SqlCommand(query, connection);
 
                 sqlCommand.Parameters.AddWithValue("@SamochodID", SamochodIdTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowieniaCalendar.SelectedDate);
                 sqlCommand.Parameters.AddWithValue("@Ilosc", IloscTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@StatusID", StatusIdTxt.Text);
+                sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowieniaCalendar.SelectedDate);
 
                 sqlCommand.ExecuteNonQuery();
                 Close();
+                CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -55,9 +56,19 @@ namespace Projekt_ProgramowanieO
             }
         }
 
-        private void IdTxt_GotFocus(object sender, RoutedEventArgs e)
+        private void SamochodIdTxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            IdTxt.Clear();
+            SamochodIdTxt.Clear();
+        }
+
+        private void IloscTxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            IloscTxt.Clear();
+        }
+
+        private void StatusIdTxt_GotFocus(object sender, RoutedEventArgs e)
+        {
+            StatusIdTxt.Clear();
         }
     }
 }

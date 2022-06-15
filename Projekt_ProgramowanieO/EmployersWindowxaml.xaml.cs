@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_ProgramowanieO.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,29 +31,8 @@ namespace Projekt_ProgramowanieO
       
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                connection.Open();
-                string query = " select ID, Imie, Nazwisko, Email, Telefon, StatusID From Pracownicy";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                DataTable listaPracownikow = new DataTable("ListaPracownikow");
-                adapter.Fill(listaPracownikow);
-
-                pracownicydataGrid.ItemsSource = listaPracownikow.DefaultView;
-
-                adapter.Update(listaPracownikow);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
+            DataTable EmployeesList = DBHelper.GetEmployees();
+            listapracownicydataGrid.ItemsSource = EmployeesList.DefaultView;
         }
 
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)

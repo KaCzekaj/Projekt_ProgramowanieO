@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Projekt_ProgramowanieO.Helpers
 {
@@ -14,8 +15,8 @@ namespace Projekt_ProgramowanieO.Helpers
         public static SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
         public static bool Login(string login, string password)
         {
-            
-           
+
+
             try
             {
                 if (connection.State == ConnectionState.Closed)
@@ -34,7 +35,7 @@ namespace Projekt_ProgramowanieO.Helpers
                 if (count == 1)
                 {
                     return true;
-                    
+
                 }
                 else
                 {
@@ -65,7 +66,7 @@ namespace Projekt_ProgramowanieO.Helpers
 
                 DataTable listaSamochodow = new DataTable("ListaSamochodów");
                 adapter.Fill(listaSamochodow);
-               
+
 
                 adapter.Update(listaSamochodow);
                 return listaSamochodow;
@@ -78,8 +79,155 @@ namespace Projekt_ProgramowanieO.Helpers
             {
                 connection.Close();
             }
-            
-        }
 
+        }
+        public static DataTable GetEmployees()
+        {
+            try
+            {
+                connection.Open();
+                string query = " select ID, Imie, Nazwisko, Email, Telefon, StatusID From Pracownicy";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                DataTable listaPracownikow = new DataTable("ListaPracownikow");
+                adapter.Fill(listaPracownikow);
+
+                adapter.Update(listaPracownikow);
+                return listaPracownikow;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public static DataTable GetCarOrders()
+        {
+            try
+            {
+                connection.Open();
+                string query = " select ID,SamochodID, DataZamowienia, Ilosc, StatusID From ZamowieniaSamochodow ";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                DataTable dodajSamochod = new DataTable("ZamowieniaSamochodów");
+                adapter.Fill(dodajSamochod);
+
+                adapter.Update(dodajSamochod);
+                return dodajSamochod;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public static DataTable RefreshCarOrders()
+        {
+            try
+            {
+                connection.Open();
+                string query = "Select * From ZamowieniaSamochodow";
+                SqlCommand sqlCommand = new SqlCommand(query, connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+
+                DataTable zamowieniaSamochodow = new DataTable("ZamowieniaSamochodow");
+                adapter.Fill(zamowieniaSamochodow);
+
+                
+
+                adapter.Update(zamowieniaSamochodow);
+                return zamowieniaSamochodow;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        //public static void RemoveOrder()
+        //{
+        //    int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
+        //    if (selectedOrder != -1)
+        //    {
+        //        TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+
+        //        try
+        //        {
+        //            connection.Open();
+        //            string query = "Delete From ZamowieniaSamochodow Where ID = @ID";
+
+        //            SqlCommand sqlCommand = new SqlCommand(query, connection);
+
+        //            sqlCommand.Parameters.AddWithValue("@ID", ID.Text);
+
+        //            sqlCommand.ExecuteNonQuery();
+
+        //            query = "Select * From ZamowieniaSamochodow";
+        //            sqlCommand = new SqlCommand(query, connection);
+        //            sqlCommand.ExecuteNonQuery();
+
+        //            SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+
+        //            DataTable zamowieniaSamochodow = new DataTable("ZamowieniaSamochodow");
+        //            adapter.Fill(zamowieniaSamochodow);
+
+
+        //            adapter.Update(zamowieniaSamochodow);
+                    
+
+        //        }
+        //        catch (Exception)
+        //        {
+        //            throw;
+        //        }
+        //        finally
+        //        {
+        //            connection.Close();
+        //        }
+                
+        //    }
+        //}
+
+        //public static void AddCarOrder()
+        //{
+        //    try
+        //    {
+        //        connection.Open();
+        //        string query = "Insert Into ZamowieniaSamochodow(SamochodID,DataZamowienia,Ilosc,StatusID) VALUES(@SamochodID,@DataZamowienia,@Ilosc,@StatusID)";
+
+        //        SqlCommand sqlCommand = new SqlCommand(query, connection);
+
+        //        sqlCommand.Parameters.AddWithValue("@SamochodID", SamochodIdTxt.Text);
+        //        sqlCommand.Parameters.AddWithValue("@DataZamowienia", DataZamowieniaCalendar.SelectedDate);
+        //        sqlCommand.Parameters.AddWithValue("@Ilosc", IloscTxt.Text);
+        //        sqlCommand.Parameters.AddWithValue("@StatusID", StatusIdTxt.Text);
+
+        //        sqlCommand.ExecuteNonQuery();
+        //        Close();
+        //        CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+        //}
     }
 }

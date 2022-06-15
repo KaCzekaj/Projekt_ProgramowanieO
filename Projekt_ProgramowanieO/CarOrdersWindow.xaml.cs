@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_ProgramowanieO.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,32 +28,6 @@ namespace Projekt_ProgramowanieO
         {
             InitializeComponent();
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                connection.Open();
-                string query = " select ID,SamochodID, DataZamowienia, Ilosc, StatusID From ZamowieniaSamochodow ";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                DataTable dodajSamochod = new DataTable("ZamowieniaSamochodów");
-                adapter.Fill(dodajSamochod);
-
-                dodajSamochodDataGrid.ItemsSource = dodajSamochod.DefaultView;
-
-                adapter.Update(dodajSamochod);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
@@ -66,13 +41,18 @@ namespace Projekt_ProgramowanieO
             addCarWindow.Show();
 
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataTable getCarOrders = DBHelper.GetCarOrders();
+            dodajSamochodDataGrid.ItemsSource = getCarOrders.DefaultView;
+        }
 
         private void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
         {
             int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
             if (selectedOrder != -1)
             {
-                 TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+                TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
                 try
                 {
@@ -109,8 +89,16 @@ namespace Projekt_ProgramowanieO
                 }
             }
 
+
         }
-       
+
+        private void RefreshData_Click(object sender, RoutedEventArgs e)
+        {
+            DataTable refreshCarOrders = DBHelper.RefreshCarOrders();
+            dodajSamochodDataGrid.ItemsSource = refreshCarOrders.DefaultView;
+
+
+        }
     }
 }
 
