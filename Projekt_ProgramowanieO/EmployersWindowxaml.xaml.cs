@@ -27,23 +27,23 @@ namespace Projekt_ProgramowanieO
         }
 
         SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
-
-        private void RefreshBtn_Click(object s , RoutedEventArgs e)
+      
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
                 connection.Open();
-                string query = " select ID, Imie, Nazwisko, Email, Telefon,StatusID From Pracownicy";
+                string query = " select ID, Imie, Nazwisko, Email, Telefon, StatusID From Pracownicy";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
-                DataTable listaPracowników = new DataTable("ListaSamochodów");
-                adapter.Fill(listaPracowników);
+                DataTable listaPracownikow = new DataTable("ListaPracownikow");
+                adapter.Fill(listaPracownikow);
 
-                pracownicydataGrid.ItemsSource = listaPracowników.DefaultView;
+                pracownicydataGrid.ItemsSource = listaPracownikow.DefaultView;
 
-                adapter.Update(listaPracowników);
+                adapter.Update(listaPracownikow);
             }
             catch (Exception)
             {
@@ -53,7 +53,6 @@ namespace Projekt_ProgramowanieO
             {
                 connection.Close();
             }
-
         }
 
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)

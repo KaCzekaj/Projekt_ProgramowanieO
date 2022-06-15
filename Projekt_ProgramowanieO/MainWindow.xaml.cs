@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_ProgramowanieO.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -47,31 +48,11 @@ namespace Projekt_ProgramowanieO
             this.Visibility= Visibility.Hidden;
             loginWindow2.Show();
         }
-        private void RefreshButton_Click(object s, RoutedEventArgs e)
+        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                connection.Open();
-                string query = " select ID, Marka, Model, Nadwozie, MocSilnika, Ilosc, StatusID From ListaSamochodow ";
-                SqlCommand command = new SqlCommand(query,connection);
-                command.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                DataTable listaSamochodow = new DataTable("ListaSamochodów"); 
-                adapter.Fill(listaSamochodow);
-
-                listaSamochodowdataGrid.ItemsSource = listaSamochodow.DefaultView;
-
-                adapter.Update(listaSamochodow);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-            }
+            DataTable Carslist = DBHelper.GetCars();
+            listaSamochodowdataGrid.ItemsSource = Carslist.DefaultView;
         }
     }
 }

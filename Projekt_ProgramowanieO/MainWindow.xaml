@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  Background="#53E09C">
+        Title="MainWindow" Height="450" Width="800"  Background="#53E09C" Loaded="Window_Loaded">
 
     <Grid>
 
 
-        <Grid.Background>
+        <!--<Grid.Background>
             <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
-        </Grid.Background>
+        </Grid.Background>-->
 
 
         <Frame x:Name="MainFrame"/>
@@ -24,24 +24,6 @@
                   Width="800" 
                   d:ItemsSource="{d:SampleData ItemCount=7}"/>
 
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button 
-                x:Name="RefreshBtn"
-                Background="DarkGoldenrod"
-                BorderThickness="3,3,3,3"
-                Content="Odśwież" 
-                Margin="0 0 0 50"  
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Height="40" Width="120"
-                Click="RefreshButton_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
         </StackPanel>
         <StackPanel>
             <TextBlock         
@@ -63,7 +45,7 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 10 0">
 
             <Button 
-                Content="Pracownicy" 
+                Content="Employees" 
                 BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
@@ -78,7 +60,7 @@
             </Button>
 
             <Button 
-                Content="Zamów Samochód" 
+                Content="Order a Car" 
                 BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
@@ -93,7 +75,7 @@
             </Button>
 
             <Button 
-                Content="Wyloguj" 
+                Content="Log Out" 
                 BorderThickness="3,3,3,3"
                 Background="DarkGoldenrod"
                 Margin="0 0 20 0" 

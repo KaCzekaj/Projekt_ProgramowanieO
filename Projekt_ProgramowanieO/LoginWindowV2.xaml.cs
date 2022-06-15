@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt_ProgramowanieO.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -22,9 +23,9 @@ namespace Projekt_ProgramowanieO
     public partial class LoginWindowV2 : Window
     {
 
-        //SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
 
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
+        //SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
         public LoginWindowV2()
         {
             InitializeComponent();
@@ -32,42 +33,18 @@ namespace Projekt_ProgramowanieO
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            bool islogged = DBHelper.Login(LoginTxt.Text, PasswordTxt.passbox.Password);
+
+ 
+            if (islogged)
             {
-                if (connection.State == ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
-                string loginQuery = "Select (1) From LoginHaslo WHERE Login = @Login AND Haslo = @Haslo";
-                SqlCommand command = new SqlCommand(loginQuery, connection);
-
-                command.CommandType = CommandType.Text;
-                command.Parameters.AddWithValue("@Login", LoginTxt.Text);
-                command.Parameters.AddWithValue("@Haslo", PasswordTxt.passbox.Password);
-
-                int count = Convert.ToInt32(command.ExecuteScalar());
-
-                if (count == 1)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("You've entered wrong login or password! Please check again if you write it correctly.");
-                }
-
+                MainWindow mainWindow = new MainWindow();
+                this.Visibility = Visibility.Hidden;
+                mainWindow.Show();
             }
-            catch (Exception exception)
+            else
             {
-                MessageBox.Show(exception.Message);
-
-            }
-            finally
-            {
-                connection.Close();
+                MessageBox.Show("paosdkoaskdo");
             }
         }
     }

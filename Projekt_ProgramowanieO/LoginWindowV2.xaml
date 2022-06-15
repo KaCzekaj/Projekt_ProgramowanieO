@@ -15,9 +15,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid.Background>
+        <!--<Grid.Background>
             <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
-        </Grid.Background>
+        </Grid.Background>-->
 
         <!--Tytuł-->
         <TextBlock         

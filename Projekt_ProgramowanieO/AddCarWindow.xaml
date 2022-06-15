@@ -1,0 +1,60 @@
+﻿<Window x:Class="Projekt_ProgramowanieO.AddCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_ProgramowanieO"
+        mc:Ignorable="d"
+        Title="AddCarWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox 
+                x:Name ="IdTxt"
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0" 
+                TextWrapping="Wrap" 
+                Text="ID" 
+                GotFocus="IdTxt_GotFocus"
+                VerticalAlignment="Top" 
+                Width="100" Height="35"/>
+            <TextBox
+                x:Name ="SamochodIdTxt" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0" 
+                TextWrapping="Wrap" 
+                Text="SamochodID" 
+                VerticalAlignment="Top" 
+                Width="100"  Height="35"/>
+            <Calendar
+                x:Name ="DataZamowieniaCalendar" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0"                
+                VerticalAlignment="Top" 
+                Width="200" Height="135"/>
+            <TextBox 
+                x:Name ="IloscTxt" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0" 
+                TextWrapping="Wrap" 
+                Text="Ilosc" 
+                VerticalAlignment="Top" 
+                Width="100" Height="35"/>
+            <TextBox 
+                x:Name ="StatusIdTxt" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0"
+                TextWrapping="Wrap" 
+                Text="StatusID" 
+                VerticalAlignment="Top" 
+                Width="100" Height="35"/>
+        </StackPanel>
+        <StackPanel>
+            <Button
+              x:Name="AddBtn"
+                Content="AddCar"
+                Click="AddBtn_Click">
+            </Button>
+            
+        </StackPanel>
+    </Grid>
+</Window>
