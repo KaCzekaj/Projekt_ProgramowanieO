@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo2.png"/>
+            <ImageBrush ImageSource="Images\tlo2.png"/>
         </Grid.Background>
 
         <!--Tytuł-->
