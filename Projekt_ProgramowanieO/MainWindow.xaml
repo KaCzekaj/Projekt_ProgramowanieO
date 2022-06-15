@@ -29,6 +29,7 @@
             <Button 
                 x:Name="RefreshBtn"
                 Background="DarkGoldenrod"
+                BorderThickness="3,3,3,3"
                 Content="Odśwież" 
                 Margin="0 0 0 50"  
                 HorizontalAlignment="Center"
@@ -46,6 +47,7 @@
             <TextBlock         
             Margin="35, 20"  
             FontSize="30"
+                
             HorizontalAlignment="Left"
             VerticalAlignment="Center">
             <Run
@@ -61,7 +63,8 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0 20 10 0">
 
             <Button 
-                Content="Pracownicy"               
+                Content="Pracownicy" 
+                BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
                 VerticalAlignment="Top" 
@@ -76,6 +79,7 @@
 
             <Button 
                 Content="Zamów Samochód" 
+                BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="DarkGoldenrod"
                 VerticalAlignment="Top"
@@ -90,6 +94,7 @@
 
             <Button 
                 Content="Wyloguj" 
+                BorderThickness="3,3,3,3"
                 Background="DarkGoldenrod"
                 Margin="0 0 20 0" 
                 VerticalAlignment="Top" Height="40" Width="120"
