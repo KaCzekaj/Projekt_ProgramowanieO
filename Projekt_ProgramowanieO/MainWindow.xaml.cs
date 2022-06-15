@@ -28,7 +28,9 @@ namespace Projekt_ProgramowanieO
             InitializeComponent();
         }
 
-        SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        //SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-L4JD3O1\TEW_SQLEXPRESS;Initial Catalog=CarRent;Integrated Security=True");
+
 
         private void PracownicyButton_Click(object s, RoutedEventArgs e)
         {

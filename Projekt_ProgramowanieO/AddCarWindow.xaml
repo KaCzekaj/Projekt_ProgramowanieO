@@ -7,10 +7,16 @@
         mc:Ignorable="d"
         Title="AddCarWindow" Height="450" Width="800">
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\tlo2.png"/>
+        </Grid.Background>
+        
         <StackPanel Margin="0 0 200 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <TextBox
                 x:Name ="SamochodIdTxt" 
+                
                 HorizontalAlignment="Left"               
                 Margin="0,0,20,0" 
                 TextWrapping="Wrap" 
@@ -21,6 +27,7 @@
             <TextBox 
                 x:Name ="IloscTxt" 
                 HorizontalAlignment="Left" 
+                BorderThickness="3 3 3 3"
                 Margin="0,0,20,0" 
                 TextWrapping="Wrap" 
                 Text="Ilosc" 
@@ -28,7 +35,8 @@
                 VerticalAlignment="Top" 
                 Width="100" Height="35"/>
             <TextBox 
-                x:Name ="StatusIdTxt" 
+                x:Name ="StatusIdTxt"     
+                BorderThickness="3 3 3 3"
                 HorizontalAlignment="Left" 
                 Margin="0,0,20,0"
                 TextWrapping="Wrap" 
@@ -46,6 +54,7 @@
         <StackPanel>
             <Button
               x:Name="AddBtn"
+                
                 Content="AddCar"
                 Click="AddBtn_Click">
             </Button>
