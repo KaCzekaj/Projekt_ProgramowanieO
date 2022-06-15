@@ -29,7 +29,7 @@ namespace Projekt_ProgramowanieO
 
         SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
       
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable EmployeesList = DBHelper.GetEmployees();
             listapracownicydataGrid.ItemsSource = EmployeesList.DefaultView;

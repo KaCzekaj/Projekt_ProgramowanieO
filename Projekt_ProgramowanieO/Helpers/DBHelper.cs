@@ -13,6 +13,13 @@ namespace Projekt_ProgramowanieO.Helpers
     public static class DBHelper
     {
         public static SqlConnection connection = new SqlConnection(@"Data Source = BLONDAS\SQLSERVER2019; Initial Catalog = CarRent;  Integrated Security=True");
+
+        /// <summary>
+        /// Method to LoginWindow.xaml.cs -- Logic to Login.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static bool Login(string login, string password)
         {
 
@@ -54,6 +61,10 @@ namespace Projekt_ProgramowanieO.Helpers
             return false;
         }
 
+        /// <summary>
+        /// Method that shows table from ListaSamochodow
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetCars()
         {
             try
@@ -81,6 +92,11 @@ namespace Projekt_ProgramowanieO.Helpers
             }
 
         }
+
+        /// <summary>
+        /// Method that shows DataGrid table from Pracownicy
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetEmployees()
         {
             try
@@ -106,6 +122,11 @@ namespace Projekt_ProgramowanieO.Helpers
                 connection.Close();
             }
         }
+
+        /// <summary>
+        /// Method that shows DataGrid from Table ZamowieniaSamochodu
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetCarOrders()
         {
             try
@@ -131,6 +152,10 @@ namespace Projekt_ProgramowanieO.Helpers
                 connection.Close();
             }
         }
+        /// <summary>
+        /// Method that refreshes DataGrid in CarOrdersWindow
+        /// </summary>
+        /// <returns></returns>
         public static DataTable RefreshCarOrders()
         {
             try
@@ -157,49 +182,52 @@ namespace Projekt_ProgramowanieO.Helpers
                 connection.Close();
             }
         }
-        //public static void RemoveOrder()
-        //{
-        //    int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
-        //    if (selectedOrder != -1)
-        //    {
-        //        TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+        /// <summary>
+        /// Method that Remove order from DataGrid table ZamowieniaSamochodow
+        /// </summary>
+        public static void RemoveOrder()
+        {
+            int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
+            if (selectedOrder != -1)
+            {
+                TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
-        //        try
-        //        {
-        //            connection.Open();
-        //            string query = "Delete From ZamowieniaSamochodow Where ID = @ID";
+                try
+                {
+                    connection.Open();
+                    string query = "Delete From ZamowieniaSamochodow Where ID = @ID";
 
-        //            SqlCommand sqlCommand = new SqlCommand(query, connection);
+                    SqlCommand sqlCommand = new SqlCommand(query, connection);
 
-        //            sqlCommand.Parameters.AddWithValue("@ID", ID.Text);
+                    sqlCommand.Parameters.AddWithValue("@ID", ID.Text);
 
-        //            sqlCommand.ExecuteNonQuery();
+                    sqlCommand.ExecuteNonQuery();
 
-        //            query = "Select * From ZamowieniaSamochodow";
-        //            sqlCommand = new SqlCommand(query, connection);
-        //            sqlCommand.ExecuteNonQuery();
+                    query = "Select * From ZamowieniaSamochodow";
+                    sqlCommand = new SqlCommand(query, connection);
+                    sqlCommand.ExecuteNonQuery();
 
-        //            SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+                    SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
 
-        //            DataTable zamowieniaSamochodow = new DataTable("ZamowieniaSamochodow");
-        //            adapter.Fill(zamowieniaSamochodow);
+                    DataTable zamowieniaSamochodow = new DataTable("ZamowieniaSamochodow");
+                    adapter.Fill(zamowieniaSamochodow);
 
 
-        //            adapter.Update(zamowieniaSamochodow);
-                    
+                    adapter.Update(zamowieniaSamochodow);
 
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw;
-        //        }
-        //        finally
-        //        {
-        //            connection.Close();
-        //        }
-                
-        //    }
-        //}
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+        }
 
         //public static void AddCarOrder()
         //{

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         mc:Ignorable="d"
-        Title="EmployersWindowxaml" Height="450" Width="800" Background="#A6D5DE" Loaded="Window_Loaded">
+        Title="EmployersWindowxaml" Height="450" Width="800" Background="#A6D5DE" Loaded="EmployeesListWindow_Loaded">
     <Grid>
 
         <Grid.Background>
