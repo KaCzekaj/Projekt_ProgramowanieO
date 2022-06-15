@@ -8,16 +8,16 @@
              d:DesignHeight="450" d:DesignWidth="800"
              MinWidth="300"
              x:Name="_this">
-   
+
     <UserControl.Resources>
         <Style x:Key="credentialTxTtitleStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="ForestGreen"/>
             <Setter Property="FontSize" Value="20"/>
-            
+
             <!--we want to resue this control we will use property binding for our placeholder-->
-            
+
             <Setter Property="Text" Value="{Binding PlaceHolder, ElementName=_this}"/>
             <Setter Property="Padding" Value="2,0"/>
             <Style.Triggers>
@@ -54,62 +54,7 @@
 
             <Setter Property="Text" Value="{Binding Text, Mode=TwoWay, ElementName=_this}"/>
             <Setter Property="TextAlignment" Value="{Binding Text, ElementName=_this}"/>
-           
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-   
-              <!--We aldo ned to move our text some point below and also increse fonmt size-->
-            <Style.Triggers>
-                
-                <!--Trigger, we will chceck what is the font size of title-->
-                <DataTrigger Binding="{Binding FontSize, ElementName=title}" Value="15">
 
-                    <!--deuflat position and fontsize of title-->
-
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard SpeedRatio="10">
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20"/>
-                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0 20 0 0"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </DataTrigger.EnterActions>
-
-                    <!--Position and fontsize of title when email textbox has value-->
-
-                    <DataTrigger.ExitActions>
-                        <BeginStoryboard>
-                            <Storyboard SpeedRatio="10">
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15"/>
-                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </DataTrigger.ExitActions>
-
-                </DataTrigger>
-
-               <!--get password inside the textbox if the text is empty-->
-
-                <DataTrigger Binding="{Binding Text, Mode=TwoWay, ElementName=_this}" Value="">
-                    <Setter Property="Text" Value="{Binding Password, ElementName=passbox}"/>
-                </DataTrigger>
-
-                <!--SHOW  When the show pass button is pressed-->
-                
-                
-
-                <DataTrigger Binding="{Binding Visibility, ElementName=passbox}" Value="Visible">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                </DataTrigger>
-
-            </Style.Triggers>
-        </Style>
-
-        <Style TargetType="{x:Type PasswordBox}">
-            
-            <Setter Property="Padding" Value="2,0,30,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -142,8 +87,65 @@
                             </Storyboard>
                         </BeginStoryboard>
                     </DataTrigger.ExitActions>
-
                 </DataTrigger>
+         
+        
+   
+
+        <!--get password inside the textbox if the text is empty-->
+
+                <DataTrigger Binding="{Binding Text, Mode=TwoWay, ElementName=_this}" Value="">
+                    <Setter Property="Text" Value="{Binding Password, ElementName=passbox}"/>
+                </DataTrigger>
+
+                <!--SHOW  When the show pass button is pressed-->
+                
+                
+
+                <DataTrigger Binding="{Binding Visibility, ElementName=passbox}" Value="Visible">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type PasswordBox}">
+            
+            <Setter Property="Padding" Value="2,0,30,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
+            <!--We aldo ned to move our text some point below and also increse fonmt size-->
+            <Style.Triggers>
+
+                <!--Trigger, we will chceck what is the font size of title-->
+                <!--<DataTrigger Binding="{Binding FontSize, ElementName=title}" Value="15">
+
+                    --><!--deuflat position and fontsize of title--><!--
+
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0 20 0 0"/>    Zmiana czcionki po wpasaniu tekstu - nie działa
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+
+                    --><!--Position and fontsize of title when email textbox has value--><!--
+
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="10">
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+
+                </DataTrigger>-->
 
                 <!--HIDE PASSWORD IF THE iS Password = faslse-->
 
