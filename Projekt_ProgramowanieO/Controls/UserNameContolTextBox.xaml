@@ -8,12 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="800"
              MinWidth="300"
              x:Name="_this">
-
+    
     <UserControl.Resources>
         <Style x:Key="credentialTxTtitleStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="ForestGreen"/>
+            <Setter Property="Foreground" Value="Gray"/>
             <Setter Property="FontSize" Value="20"/>
 
             <!--we want to resue this control we will use property binding for our placeholder-->
@@ -44,17 +44,12 @@
                             </Storyboard>
                         </BeginStoryboard>
                     </DataTrigger.ExitActions>
-
                 </DataTrigger>
-
             </Style.Triggers>
         </Style>
-
         <Style x:Key="credentialTxTStyle" TargetType="{x:Type TextBox}">
-
             <Setter Property="Text" Value="{Binding Text, Mode=TwoWay, ElementName=_this}"/>
             <Setter Property="TextAlignment" Value="{Binding Text, ElementName=_this}"/>
-
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -88,29 +83,21 @@
                         </BeginStoryboard>
                     </DataTrigger.ExitActions>
                 </DataTrigger>
-         
-        
-   
 
-        <!--get password inside the textbox if the text is empty-->
+                <!--get password inside the textbox if the text is empty-->
 
                 <DataTrigger Binding="{Binding Text, Mode=TwoWay, ElementName=_this}" Value="">
                     <Setter Property="Text" Value="{Binding Password, ElementName=passbox}"/>
                 </DataTrigger>
 
                 <!--SHOW  When the show pass button is pressed-->
-                
-                
 
                 <DataTrigger Binding="{Binding Visibility, ElementName=passbox}" Value="Visible">
                     <Setter Property="Visibility" Value="Collapsed"/>
                 </DataTrigger>
-
             </Style.Triggers>
         </Style>
-
         <Style TargetType="{x:Type PasswordBox}">
-            
             <Setter Property="Padding" Value="2,0,30,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -135,7 +122,7 @@
                     </DataTrigger.EnterActions>
 
                     --><!--Position and fontsize of title when email textbox has value--><!--
-
+                
                     <DataTrigger.ExitActions>
                         <BeginStoryboard>
                             <Storyboard SpeedRatio="10">
@@ -144,9 +131,7 @@
                             </Storyboard>
                         </BeginStoryboard>
                     </DataTrigger.ExitActions>
-
                 </DataTrigger>-->
-
                 <!--HIDE PASSWORD IF THE iS Password = faslse-->
 
                 <DataTrigger Binding="{Binding IsPassword, ElementName=_this}" Value="False">
@@ -177,7 +162,7 @@
 
                         </Border>
                         <ControlTemplate.Triggers>
-                            
+
                             <!--Hide button if not IsPassword-->
                             <DataTrigger Binding="{Binding IsPassword, ElementName=_this}" Value="false">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -185,10 +170,8 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
-              </Setter>
-
+            </Setter>
         </Style>
-
     </UserControl.Resources>
 
     <Border 
@@ -233,8 +216,6 @@
                     BorderThickness="0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"/>
-
-
         </Grid>
     </Border>
 </UserControl>

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         xmlns:controls="clr-namespace:Projekt_ProgramowanieO.Controls"
         mc:Ignorable="d"
-        Title="LogiWinfowV2" Height="450" Width="800">
+        Title="LogiWinfowV2" Height="450" Width="800" Background="#53E09C"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition 
@@ -14,15 +15,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
+        </Grid.Background>
+
         <!--Tytuł-->
         <TextBlock         
             Margin="35, 0"  
             FontSize="30"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center">
             <Run
-                Text="Car"/><Run
+                Text="Car"/>
+            <Run
                 FontWeight="Black"
+                Foreground="Gray"
             
             Text="Rent"/>
 
@@ -34,8 +41,14 @@
               Width="400"
               HorizontalAlignment="Center"
               VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="66*"/>
+                <ColumnDefinition Width="97*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
+                <!--Podział na kolumny aplikacji-->
                 <!--Login-->
                 <RowDefinition  Height="100"/>
                 <!--Email-->
@@ -49,47 +62,47 @@
 
             </Grid.RowDefinitions>
 
-            <!--Welcome message with user-->
+            <!--Powitanie użytkownmika-->
 
             <TextBlock
                    VerticalAlignment="Center"
-                   FontSize="30">
+                   FontSize="30" Grid.ColumnSpan="3" Height="43">
                 <Run
                     FontWeight="SemiBold"
                     Text="Hello"/><Run
                     Text="Grzegorz"
-                    Foreground="Blue"
+                    Foreground="Gray" 
                     FontWeight="Bold"
-                    x:Name="UsewrNqame"/>
+                    x:Name="UserName"/>
             </TextBlock>
 
-            <!--EmailTextbox-->
+            <!--Login Textbox-->
 
             <controls:UserNameContolTextBox 
-                Grid.Row="1" 
                 x:Name="LoginTxt"
-                PlaceHolder="Login" />
+                PlaceHolder="Login" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" />
 
             <!--Password TextBox-->
             <controls:UserNameContolTextBox 
-                Grid.Row="2"
+                Grid.Row="1"
                 x:Name="PasswordTxt"
                 PlaceHolder="Password"
-                IsPassword="True"/>
+                
+                IsPassword="True" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2"/>
 
+            <!--Przycisk-->
             <Button               
                 Content="Login" 
                 FontSize="20"
                 FontWeight="Bold"
                 Grid.Row="2"
                 Foreground="White"
-                Margin="0 60 0 0" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Center" 
-                Height="60" Width="200" 
-                Grid.RowSpan="3"
-                Background="Blue"
-                Click="Button_Click"
+                Margin="26,90,0,0" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Height="60" Width="200"
+                Background="Gray"
+                Click="Button_Click" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Column="1"
                  >
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -98,10 +111,10 @@
                 </Button.Resources>
             </Button>
 
-            
+
 
         </Grid>
-        
+
 
     </Grid>
 </Window>
