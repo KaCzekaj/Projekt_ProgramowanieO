@@ -13,7 +13,7 @@
         <Style x:Key="credentialTxTtitleStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
             <Setter Property="FontSize" Value="20"/>
 
             <!--we want to resue this control we will use property binding for our placeholder-->
@@ -184,7 +184,7 @@
             <DropShadowEffect BlurRadius="23" 
                               ShadowDepth="5" 
                               Direction="270"
-                              Color="WhiteSmoke"/>
+                              Color="DarkGoldenrod"/>
 
         </Border.Effect>
 

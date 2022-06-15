@@ -8,7 +8,11 @@
         Title="MainWindow" Height="450" Width="800"  Background="#53E09C">
 
     <Grid>
-        
+
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
+        </Grid.Background>
 
 
         <Frame x:Name="MainFrame"/>
@@ -24,7 +28,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button 
                 x:Name="RefreshBtn"
-                Background="#F7CA36"
+                Background="DarkGoldenrod"
                 Content="Odśwież" 
                 Margin="0 0 0 50"  
                 HorizontalAlignment="Center"
@@ -48,7 +52,7 @@
                 Text="Car"/>
             <Run
                 FontWeight="Black"
-                Foreground="#61491A"
+                Foreground="DarkGoldenrod"
             
             Text="Rent"/>
 
@@ -59,7 +63,7 @@
             <Button 
                 Content="Pracownicy"               
                 Margin="0 0 20 0"  
-                Background="#F7CA36"
+                Background="DarkGoldenrod"
                 VerticalAlignment="Top" 
                 Height="40" Width="120" 
                 Click="PracownicyButton_Click ">
@@ -73,7 +77,7 @@
             <Button 
                 Content="Zamów Samochód" 
                 Margin="0 0 20 0"  
-                Background="#F7CA36"
+                Background="DarkGoldenrod"
                 VerticalAlignment="Top"
                 Height="40" Width="120"
                 Click="ZamowSamochodButton_Click">
@@ -86,7 +90,7 @@
 
             <Button 
                 Content="Wyloguj" 
-                Background="#F7CA36"
+                Background="DarkGoldenrod"
                 Margin="0 0 20 0" 
                 VerticalAlignment="Top" Height="40" Width="120"
                 Click="WylogujButton_Click">

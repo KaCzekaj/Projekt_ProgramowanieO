@@ -29,7 +29,7 @@
                 Text="Car"/>
             <Run
                 FontWeight="Black"
-                Foreground="Gray"
+                Foreground="DarkGoldenrod"
             
             Text="Rent"/>
 
@@ -44,7 +44,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="37*"/>
                 <ColumnDefinition Width="66*"/>
-                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="86*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -66,12 +67,12 @@
 
             <TextBlock
                    VerticalAlignment="Center"
-                   FontSize="30" Grid.ColumnSpan="3" Height="43">
+                   FontSize="30" Grid.ColumnSpan="4" Height="44">
                 <Run
                     FontWeight="SemiBold"
                     Text="Hello"/><Run
                     Text="Grzegorz"
-                    Foreground="Gray" 
+                    Foreground="DarkGoldenrod" 
                     FontWeight="Bold"
                     x:Name="UserName"/>
             </TextBlock>
@@ -80,7 +81,7 @@
 
             <controls:UserNameContolTextBox 
                 x:Name="LoginTxt"
-                PlaceHolder="Login" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2" />
+                PlaceHolder="Login" Grid.ColumnSpan="4" Margin="0,50,0,0" Grid.RowSpan="2" />
 
             <!--Password TextBox-->
             <controls:UserNameContolTextBox 
@@ -88,7 +89,7 @@
                 x:Name="PasswordTxt"
                 PlaceHolder="Password"
                 
-                IsPassword="True" Grid.ColumnSpan="3" Margin="0,50,0,0" Grid.RowSpan="2"/>
+                IsPassword="True" Grid.ColumnSpan="4" Margin="0,50,0,0" Grid.RowSpan="2"/>
 
             <!--Przycisk-->
             <Button               
@@ -101,8 +102,8 @@
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Height="60" Width="200"
-                Background="Gray"
-                Click="Button_Click" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Column="1"
+                Background="DarkGoldenrod"
+                Click="Button_Click" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Column="1"
                  >
                 <Button.Resources>
                     <Style TargetType="Border">

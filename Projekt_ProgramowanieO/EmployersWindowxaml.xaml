@@ -8,6 +8,9 @@
         Title="EmployersWindowxaml" Height="450" Width="800" Background="#A6D5DE">
     <Grid>
 
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\bucio\Source\Repos\KaCzekaj\Projekt_ProgramowanieO\Projekt_ProgramowanieO\Images\tlo1.webp"/>
+        </Grid.Background>
 
 
         <StackPanel>
