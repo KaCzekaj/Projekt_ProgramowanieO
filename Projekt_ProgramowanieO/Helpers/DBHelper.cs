@@ -188,10 +188,7 @@ namespace Projekt_ProgramowanieO.Helpers
         /// <param name="ID"></param>
         public static void RemoveOrder(int ID)
         {
-            //int? selectedOrder = dodajSamochodDataGrid.SelectedIndex;
-            //if (selectedOrder != -1)
-            //{
-                //TextBlock ID = dodajSamochodDataGrid.Columns[0].GetCellContent(dodajSamochodDataGrid.Items[(int)selectedOrder]) as TextBlock;
+            
 
                 try
                 {
@@ -227,7 +224,7 @@ namespace Projekt_ProgramowanieO.Helpers
                     connection.Close();
                 }
 
-            //}
+            
         }
 
 

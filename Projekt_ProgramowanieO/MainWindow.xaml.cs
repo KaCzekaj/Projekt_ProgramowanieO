@@ -28,7 +28,7 @@ namespace Projekt_ProgramowanieO
             InitializeComponent();
         }
        
-        private void PracownicyButton_Click(object s, RoutedEventArgs e)
+        private void PracownicyButton_Click(object s, RoutedEventArgs e)  
         {
             EmployersWindowxaml employersWindow = new EmployersWindowxaml();
             this.Visibility = Visibility.Hidden;
