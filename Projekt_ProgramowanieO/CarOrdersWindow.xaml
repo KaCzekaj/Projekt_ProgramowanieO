@@ -7,19 +7,40 @@
         mc:Ignorable="d"
         Title="CarOrdersWindow" Height="462" Width="800" Background="#A6D5DE" Loaded="CarOrdersWindow_Loaded">
     <Grid>
+        
 
         <Grid.Background>
             <ImageBrush ImageSource="Images\tlo2.png"/>
         </Grid.Background>
         <StackPanel>
-            <Label Content="CarRent" 
+
+            <TextBlock         
+            Margin="35, 20"  
+            FontSize="30"
+                
+            HorizontalAlignment="Center"
+                Foreground="DarkGoldenrod"
+            VerticalAlignment="Center">
+            <Run
+                
+                Text="Car"/>
+                
+            <Run
+                FontWeight="Bold"
+                
+                Foreground="DarkGoldenrod"
+            
+            Text="Rent"/>
+
+            </TextBlock>
+            <!--<Label Content="CarRent" 
                HorizontalAlignment="Center" 
                VerticalAlignment="Top" 
                FontSize="48" 
                FontFamily="SWIsot3" 
                FontWeight="Bold" 
                FontStyle="Italic" 
-               Margin="0,10,0,0"/>
+               Margin="0,10,0,0"/>-->
             
             <Label Content="In this tab you can select if car is ordered." 
                HorizontalAlignment="Center" 

@@ -71,7 +71,7 @@
                 <Run
                     FontWeight="SemiBold"
                     Text="Hello"/><Run
-                    Text="Grzegorz"
+                    Text="Admin"
                     Foreground="DarkGoldenrod" 
                     FontWeight="Bold"
                     x:Name="UserName"/>
