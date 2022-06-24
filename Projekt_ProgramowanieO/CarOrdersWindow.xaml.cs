@@ -1,4 +1,6 @@
-﻿using Projekt_ProgramowanieO.Helpers;
+﻿using Microsoft.EntityFrameworkCore;
+using Projekt_ProgramowanieO.Database;
+using Projekt_ProgramowanieO.Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,9 +25,11 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class CarOrdersWindow : Window
     {
-        
-        public CarOrdersWindow()
+        private readonly ApplicationDbContext _context;
+
+        public CarOrdersWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
 
@@ -36,7 +40,7 @@ namespace Projekt_ProgramowanieO
         /// <param name="e"></param>
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            MainWindow main = new MainWindow(_context);
             this.Visibility = Visibility.Hidden;
             main.Show();
         }
@@ -48,18 +52,18 @@ namespace Projekt_ProgramowanieO
         /// <param name="e"></param>
         private void AddCarBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddCarWindow addCarWindow = new AddCarWindow();            
+            AddCarWindow addCarWindow = new AddCarWindow(_context);            
             addCarWindow.Show();
 
         }
 
-        private void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable getCarOrders = DBHelper.GetCarOrders();
-           AddCarDataGrid.ItemsSource = getCarOrders.DefaultView;
+           List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+           AddCarDataGrid.ItemsSource = cars;
         }
 
-        private void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
+        private async void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
         {
             
             int? selectedOrder = AddCarDataGrid.SelectedIndex;
@@ -67,20 +71,20 @@ namespace Projekt_ProgramowanieO
             {
                 TextBlock ID = AddCarDataGrid.Columns[0].GetCellContent(AddCarDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
-                DBHelper.RemoveOrder(int.Parse(ID.Text));
-                DataTable refreshCarOrders = DBHelper.GetCarOrders();
-                AddCarDataGrid.ItemsSource = refreshCarOrders.DefaultView;
+                ZamowieniaSamochodow reservationToDelete = _context.CarsReservations.Where(x => x.ID == int.Parse(ID.Text)).FirstOrDefault();
+                _context.Remove(reservationToDelete);
+                _context.SaveChanges();
+                List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+                AddCarDataGrid.ItemsSource = cars;
             }
         }
 
 
 
-        private void RefreshData_Click(object sender, RoutedEventArgs e)
+        private async void RefreshData_Click(object sender, RoutedEventArgs e)
         {
-            DataTable refreshCarOrders = DBHelper.RefreshCarOrders();
-            AddCarDataGrid.ItemsSource = refreshCarOrders.DefaultView;
-
-
+            List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+            AddCarDataGrid.ItemsSource = cars;
         }
     }
 }

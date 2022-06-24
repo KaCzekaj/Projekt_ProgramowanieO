@@ -1,4 +1,6 @@
-﻿using Projekt_ProgramowanieO.Helpers;
+﻿using Microsoft.EntityFrameworkCore;
+using Projekt_ProgramowanieO.Database;
+using Projekt_ProgramowanieO.Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,34 +25,38 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ApplicationDbContext _context;
+        public MainWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
+            var user = _context.Users.FirstOrDefault();
+            MessageBox.Show(user.Login);
         }
        
         private void PracownicyButton_Click(object s, RoutedEventArgs e)  
         {
-            EmployersWindowxaml employersWindow = new EmployersWindowxaml();
+            EmployersWindowxaml employersWindow = new EmployersWindowxaml(_context);
             this.Visibility = Visibility.Hidden;
             employersWindow.Show();
         }
         private void ZamowSamochodButton_Click(object s, RoutedEventArgs e)
         {
-            CarOrdersWindow carOrdersWindow = new CarOrdersWindow();
+            CarOrdersWindow carOrdersWindow = new CarOrdersWindow(_context);
             this.Visibility = Visibility.Hidden;
             carOrdersWindow.Show();
         }
         private void WylogujButton_Click(object s, RoutedEventArgs e)
         {
-            LoginWindowV2 loginWindow2 = new LoginWindowV2();
+            LoginWindowV2 loginWindow2 = new LoginWindowV2(_context);
             this.Visibility= Visibility.Hidden;
             loginWindow2.Show();
         }
         
-        private void CarListWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void CarListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable Carslist = DBHelper.GetCars();
-            CarListdataGrid.ItemsSource = Carslist.DefaultView;
+            List<ListaSamochodow> cars = await _context.CarsList.ToListAsync();
+            CarListdataGrid.ItemsSource = cars;
         }
     }
 }

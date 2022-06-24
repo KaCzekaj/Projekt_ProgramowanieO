@@ -1,4 +1,6 @@
-﻿using Projekt_ProgramowanieO.Helpers;
+﻿using Microsoft.EntityFrameworkCore;
+using Projekt_ProgramowanieO.Database;
+using Projekt_ProgramowanieO.Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,19 +24,23 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class EmployersWindowxaml : Window
     {
-        public EmployersWindowxaml()
+        private readonly ApplicationDbContext _context;
+
+        public EmployersWindowxaml(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
-        }           
-        private void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
+        }
+
+        private async void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DataTable EmployeesList = DBHelper.GetEmployees();
-            EmployeesListdataGrid.ItemsSource = EmployeesList.DefaultView;
+            List<Pracownicy> workers = await _context.Workers.ToListAsync();
+            EmployeesListdataGrid.ItemsSource = workers;
         }
 
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            MainWindow main = new MainWindow(_context);
             this.Visibility = Visibility.Hidden;
             main.Show();
         }

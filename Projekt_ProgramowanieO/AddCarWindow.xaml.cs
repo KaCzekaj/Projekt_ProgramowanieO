@@ -1,4 +1,5 @@
-﻿using Projekt_ProgramowanieO.Helpers;
+﻿using Projekt_ProgramowanieO.Database;
+using Projekt_ProgramowanieO.Database.Tables;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -22,15 +23,24 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class AddCarWindow : Window
     {
-        
-        public AddCarWindow()
+        private readonly ApplicationDbContext _context;
+
+        public AddCarWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            DBHelper.AddCarOrder(SamochodIdTxt.Text,  StatusIdTxt.Text, (DateTime)DataZamowieniaCalendar.SelectedDate);
+            _context.CarsReservations.Add(new ZamowieniaSamochodow
+            {
+                SamochodID = int.Parse(SamochodIdTxt.Text),
+                StatusID = int.Parse(StatusIdTxt.Text),
+                DataZamowienia = (DateTime)DataZamowieniaCalendar.SelectedDate
+            });
+            _context.SaveChanges();
+
             Close();        
         }
 

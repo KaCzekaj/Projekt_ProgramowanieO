@@ -1,4 +1,5 @@
-﻿using Projekt_ProgramowanieO.Helpers;
+﻿using Microsoft.EntityFrameworkCore;
+using Projekt_ProgramowanieO.Database;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,20 +23,24 @@ namespace Projekt_ProgramowanieO
     /// </summary>
     public partial class LoginWindowV2 : Window
     {
-             
-        public LoginWindowV2()
+        private readonly ApplicationDbContext _context;
+
+        public LoginWindowV2(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            bool islogged = DBHelper.Login(LoginTxt.Text, PasswordTxt.passbox.Password);
+            bool isLogged = await _context.Users
+                .Where(x => x.Login == LoginTxt.Text && x.Haslo == PasswordTxt.passbox.Password)
+                .FirstOrDefaultAsync() != null;
 
  
-            if (islogged)
+            if (isLogged)
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(_context);
                 this.Visibility = Visibility.Hidden;
                 mainWindow.Show();
             }
