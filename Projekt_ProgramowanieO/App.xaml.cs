@@ -22,7 +22,7 @@ namespace Projekt_ProgramowanieO
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<UserNameContolTextBox>();
                     services.AddSingleton<LoginWindowV2>();
-                    services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;", o => o.CommandTimeout(120)));
+                    services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Server=localhost\\SQLExpress,1433;Initial Catalog=CarRent;Integrated Security=SSPI;", o => o.CommandTimeout(120)));
                 }).Build();
 
             using (var serviceScope = _host.Services.CreateScope())
