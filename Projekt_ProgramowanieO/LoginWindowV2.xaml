@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Projekt_ProgramowanieO"
         xmlns:controls="clr-namespace:Projekt_ProgramowanieO.Controls"
         mc:Ignorable="d"
-        Title="LogiWinfowV2" Height="450" Width="800" Background="#53E09C"
+        Title="LoginWindowV2" Height="450" Width="800" Background="#53E09C"
         >
     <Grid>
         <Grid.RowDefinitions>

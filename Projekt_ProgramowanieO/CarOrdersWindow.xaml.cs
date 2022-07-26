@@ -59,7 +59,7 @@ namespace Projekt_ProgramowanieO
 
         private async void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
         {
-           List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+           List<ZamowieniaSamochodow> cars = await _context.ZamowieniaSamochodow.ToListAsync();
            AddCarDataGrid.ItemsSource = cars;
         }
 
@@ -71,10 +71,10 @@ namespace Projekt_ProgramowanieO
             {
                 TextBlock ID = AddCarDataGrid.Columns[0].GetCellContent(AddCarDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
-                ZamowieniaSamochodow reservationToDelete = _context.CarsReservations.Where(x => x.ID == int.Parse(ID.Text)).FirstOrDefault();
+                ZamowieniaSamochodow reservationToDelete = _context.ZamowieniaSamochodow.Where(x => x.ID == int.Parse(ID.Text)).FirstOrDefault();
                 _context.Remove(reservationToDelete);
                 _context.SaveChanges();
-                List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+                List<ZamowieniaSamochodow> cars = await _context.ZamowieniaSamochodow.ToListAsync();
                 AddCarDataGrid.ItemsSource = cars;
             }
         }
@@ -83,7 +83,7 @@ namespace Projekt_ProgramowanieO
 
         private async void RefreshData_Click(object sender, RoutedEventArgs e)
         {
-            List<ZamowieniaSamochodow> cars = await _context.CarsReservations.ToListAsync();
+            List<ZamowieniaSamochodow> cars = await _context.ZamowieniaSamochodow.ToListAsync();
             AddCarDataGrid.ItemsSource = cars;
         }
     }

@@ -34,7 +34,7 @@ namespace Projekt_ProgramowanieO
 
         private async void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Pracownicy> workers = await _context.Workers.ToListAsync();
+            List<Pracownicy> workers = await _context.Pracownicy.ToListAsync();
             EmployeesListdataGrid.ItemsSource = workers;
         }
 

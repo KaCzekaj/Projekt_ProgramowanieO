@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace Projekt_ProgramowanieO
 {
     /// <summary>
-    /// Interaction logic for LogiWinfowV2.xaml
+    /// Interaction logic for LoginWindowV2.xaml
     /// </summary>
     public partial class LoginWindowV2 : Window
     {
@@ -33,11 +33,11 @@ namespace Projekt_ProgramowanieO
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            bool isLogged = await _context.Users
+            bool isLogged = await _context.LoginHaslo
                 .Where(x => x.Login == LoginTxt.Text && x.Haslo == PasswordTxt.passbox.Password)
                 .FirstOrDefaultAsync() != null;
 
- 
+
             if (isLogged)
             {
                 MainWindow mainWindow = new MainWindow(_context);

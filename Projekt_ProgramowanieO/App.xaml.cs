@@ -6,40 +6,37 @@ using Projekt_ProgramowanieO.Database;
 using System;
 using System.Windows;
 
-namespace Projekt_ProgramowanieO
+namespace Projekt_ProgramowanieO //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Server=localhost\\SQLExpress,1433;Initial Catalog=CarRent;Integrated Security=SSPI;", o => o.CommandTimeout(120)));
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml
     /// </summary>
     public partial class App : Application
     {
-        private readonly IHost _host;
+        private ServiceProvider serviceProvider;
+
         public App()
         {
-            _host = new HostBuilder()
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddSingleton<MainWindow>();
-                    services.AddSingleton<UserNameContolTextBox>();
-                    services.AddSingleton<LoginWindowV2>();
-                    services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(@"Server=localhost\\SQLExpress,1433;Initial Catalog=CarRent;Integrated Security=SSPI;", o => o.CommandTimeout(120)));
-                }).Build();
+            ServiceCollection services = new ServiceCollection();
+            ConfigureServices(services);
+            serviceProvider = services.BuildServiceProvider();
+        }
 
-            using (var serviceScope = _host.Services.CreateScope())
+        private void ConfigureServices(ServiceCollection services)
+        {
+            services.AddDbContext<ApplicationDbContext>(options =>
             {
-                var services = serviceScope.ServiceProvider;
+                options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=CarRent;Trusted_Connection=True;", o => o.CommandTimeout(120));
+            });
 
-                try
-                {
-                    services.GetRequiredService<UserNameContolTextBox>();
-                    LoginWindowV2 loginWindow = services.GetRequiredService<LoginWindowV2>();
-                    loginWindow.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{ex.Message}\n{ex.StackTrace}");
-                }
-            }
+            services.AddSingleton<LoginWindowV2>();
+           
+        }
+
+        private void OnStartup(object sender, StartupEventArgs e)
+        {
+            LoginWindowV2 loginWindow = serviceProvider.GetService<LoginWindowV2>();
+            loginWindow.Show();
         }
     }
 }

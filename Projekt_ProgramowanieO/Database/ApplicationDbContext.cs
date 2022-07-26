@@ -9,10 +9,10 @@ namespace Projekt_ProgramowanieO.Database
             : base(options)
         { }
 
-        public DbSet<ListaSamochodow> CarsList { get; set; }
-        public DbSet<LoginHaslo> Users { get; set; }
-        public DbSet<Pracownicy> Workers { get; set; }
-        public DbSet<Status> CarsStatuses { get; set; }
-        public DbSet<ZamowieniaSamochodow> CarsReservations { get; set; }
+        public DbSet<ListaSamochodow> ListaSamochodow { get; set; }
+        public DbSet<LoginHaslo> LoginHaslo { get; set; }
+        public DbSet<Pracownicy> Pracownicy { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<ZamowieniaSamochodow> ZamowieniaSamochodow { get; set; }
     }
 }

@@ -52,7 +52,6 @@ namespace Projekt_ProgramowanieO.Controls
             DependencyProperty.Register("Text", typeof(string), typeof(UserNameContolTextBox));
 
 
-
         public bool IsPassword
         {
             get { return (bool)GetValue(IsPasswordProperty); }

@@ -30,8 +30,6 @@ namespace Projekt_ProgramowanieO
         {
             _context = context;
             InitializeComponent();
-            var user = _context.Users.FirstOrDefault();
-            MessageBox.Show(user.Login);
         }
        
         private void PracownicyButton_Click(object s, RoutedEventArgs e)  
@@ -49,13 +47,13 @@ namespace Projekt_ProgramowanieO
         private void WylogujButton_Click(object s, RoutedEventArgs e)
         {
             LoginWindowV2 loginWindow2 = new LoginWindowV2(_context);
-            this.Visibility= Visibility.Hidden;
+            this.Visibility = Visibility.Hidden;
             loginWindow2.Show();
         }
         
         private async void CarListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            List<ListaSamochodow> cars = await _context.CarsList.ToListAsync();
+            List<ListaSamochodow> cars = await _context.ListaSamochodow.ToListAsync();
             CarListdataGrid.ItemsSource = cars;
         }
     }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,13 +34,14 @@ namespace Projekt_ProgramowanieO
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            _context.CarsReservations.Add(new ZamowieniaSamochodow
+            _context.ZamowieniaSamochodow.Add(new ZamowieniaSamochodow
             {
                 SamochodID = int.Parse(SamochodIdTxt.Text),
                 StatusID = int.Parse(StatusIdTxt.Text),
                 DataZamowienia = (DateTime)DataZamowieniaCalendar.SelectedDate
             });
             _context.SaveChanges();
+            Thread.Sleep(2000);
 
             Close();        
         }
